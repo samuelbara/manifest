@@ -2,271 +2,275 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>salicommunication limited| Graphic Platform</title>
+    <title>Bukokholo Pefa Church</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
+            background: #f5f5f5;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, #4b0082, #6a0dad);
+            background: #2c3e50;
             color: white;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        nav {
-            background-color: #222;
-            padding: 10px;
-            text-align: center;
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-box {
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 10px;
         }
 
         nav a {
             color: white;
-            margin: 0 15px;
+            margin-left: 15px;
             text-decoration: none;
             font-weight: bold;
         }
 
         section {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: #1a1a1a;
-            color: #ddd;
+            max-width: 1100px;
+            margin: 20px auto;
             padding: 40px 20px;
         }
 
-        .footer-container {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
+        h2 {
+            color: #2c3e50;
         }
 
-        .footer-column h3 {
-            color: #ffffff;
+        iframe {
+            width: 100%;
+            height: 380px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .program-box, .giving-box {
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 6px;
             margin-bottom: 15px;
         }
 
-        .footer-column a {
+        footer {
+            background: #1a252f;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        footer h3 {
+            color: #f1c40f;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
             display: block;
-            color: #bbb;
-            text-decoration: none;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .footer-column a:hover {
-            color: #ffffff;
-        }
-
-        /* UNDER FOOTER */
-        .under-footer {
-            background-color: #111;
-            color: #aaa;
-            text-align: center;
-            padding: 15px 10px;
-            font-size: 0.9em;
-        }
-
-        .under-footer a {
-            color: #caa6ff;
-            margin: 0 8px;
-            text-decoration: none;
-        }
-
-        .under-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* WHATSAPP BUTTON */
-        .whatsapp-btn {
+        .chat-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #25D366;
+            background: #25D366;
             color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 28px;
+            padding: 15px 22px;
+            border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
+            font-weight: bold;
         }
     </style>
 </head>
-<script>
-    document.getElementById("newsletterForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        let email = document.getElementById("email").value;
-        let message = document.getElementById("message");
-
-        if (email.includes("@")) {
-            message.style.color = "lightgreen";
-            message.innerText = "Thank you for subscribing to Manifest Concept International!";
-            this.reset();
-        } else {
-            message.style.color = "yellow";
-            message.innerText = "Please enter a valid email address.";
-        }
-    });
-</script>
 
 <body>
 
 <header>
-    <h1>Manifest Concept International</h1>
-    <p>Empowering Minds Through Learning, Growth & Manifestation</p>
-</header>
+    <div class="logo">
+        <div class="logo-box">LOGO</div>
+        <div>
+            <h1 style="margin:0;">Bukokholo Pefa Church</h1>
+            <small>Transforming Lives • Raising Kingdom Leaders</small>
+        </div>
+    </div>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#courses">Courses</a>
-    <a href="#learning">Learning</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#programs">Programs</a>
+        <a href="#live">Live</a>
+        <a href="#giving">Giving</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
 <section id="about">
     <h2>About Us</h2>
     <p>
-        Manifest Concept International is a learning platform focused on mindset,
-        manifestation principles, and personal growth.
+        Bukokholo Pefa Church is a Christ-centered ministry committed to preaching the Gospel,
+        prayer, discipleship, and transforming lives through the power of God’s Word.
     </p>
 </section>
 
-<section id="courses">
-    <h2>Our Programs</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Mindset Mastery</h3>
-            <p>Reprogram your thinking and unlock success.</p>
-        </div>
-        <div class="card">
-            <h3>Manifestation Principles</h3>
-            <p>Learn how to apply universal laws in real life.</p>
-        </div>
-        <div class="card">
-            <h3>Personal Growth</h3>
-            <p>Develop clarity, discipline, and purpose.</p>
-        </div>
+<section id="leadership">
+    <h2>Bishop Godfrey Simiyu & Leadership</h2>
+    <p>
+        The church is led by <strong>Bishop Godfrey Simiyu</strong>, a visionary servant of God
+        with a passion for revival and raising Kingdom leaders, supported by a dedicated leadership team.
+    </p>
+</section>
+
+<!-- SERVICE TIMES -->
+<section id="programs">
+    <h2>Service Times & Weekly Programs</h2>
+
+    <div class="program-box">
+        <h3>Sunday Services</h3>
+        <p>
+            Morning Service: <strong>9:00 AM – 12:00 PM</strong><br>
+            Evening Service: <strong>5:00 PM – 7:00 PM</strong>
+        </p>
+    </div>
+
+    <div class="program-box">
+        <h3>Midweek Fellowship</h3>
+        <p>
+            Wednesday: <strong>6:00 PM – 8:00 PM</strong>
+        </p>
+    </div>
+
+    <div class="program-box">
+        <h3>Prayer & Intercession</h3>
+        <p>
+            Friday: <strong>6:00 PM – 8:00 PM</strong>
+        </p>
+    </div>
+</section>
+
+<!-- LIVE STREAMING -->
+<section id="live">
+    <h2>Live Church Services</h2>
+    <p>Join us live via YouTube or Facebook.</p>
+
+    <!-- YouTube Live -->
+    <h3>YouTube Live</h3>
+    <iframe 
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        allowfullscreen>
+    </iframe>
+
+    <!-- Facebook Live -->
+    <h3>Facebook Live</h3>
+    <iframe 
+        src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/YOURPAGE/videos/VIDEO_ID&show_text=false"
+        allowfullscreen>
+    </iframe>
+</section>
+
+<!-- ONLINE GIVING -->
+<section id="giving">
+    <h2>Online Giving</h2>
+
+    <div class="giving-box">
+        <h3>M-Pesa</h3>
+        <p>
+            Paybill: <strong>123456</strong><br>
+            Account Name: <strong>Bukokholo Pefa Church</strong>
+        </p>
+    </div>
+
+    <div class="giving-box">
+        <h3>Bank Transfer</h3>
+        <p>
+            Bank: <strong>ABC Bank</strong><br>
+            Account Number: <strong>000123456789</strong>
+        </p>
+    </div>
+
+    <div class="giving-box">
+        <h3>PayPal</h3>
+        <a href="#" target="_blank">Give via PayPal</a>
     </div>
 </section>
 
 <section id="contact">
     <h2>Contact Us</h2>
-    <p>Chat with us instantly via WhatsApp using the button below.</p>
+    <p>
+        Phone / WhatsApp: <strong>0743 268 987</strong><br>
+        Email: info@bukokholopefachurch.org
+    </p>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-  
-        <div class="footer-column">
-            <h3>Manifest Concept</h3>
-            <p>
-                A global learning platform empowering individuals
-                to manifest growth, success, and purpose.
-            </p>
+    <div class="footer-grid">
+        <div>
+            <h3>About Us</h3>
+            <p>Bukokholo Pefa Church exists to glorify God and raise Kingdom leaders.</p>
         </div>
 
-        <div class="footer-column">
-            <h3>Quick Links</h3>
-            <a href="#about">About Us</a>
-            <a href="#courses">Courses</a>
-            <a href="#learning">Learning Approach</a>
-            <a href="#contact">Contact</a>
+        <div>
+            <h3>Leadership</h3>
+            <a href="#">Bishop Godfrey Simiyu</a>
+            <a href="#">Church Leadership</a>
         </div>
 
-        <div class="footer-column">
-            <h3>Resources</h3>
-            <a href="#">Blog</a>
-            <a href="#">Free Materials</a>
-            <a href="#">FAQs</a>
-            <a href="#">Support</a>
+        <div>
+            <h3>Contact Us</h3>
+            <a href="tel:0743268987">Call Us</a>
+            <a href="https://wa.me/254743268987">WhatsApp Chat</a>
         </div>
 
-        <div class="footer-column">
-            <h3>Legal</h3>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Cookie Policy</a>
+        <div>
+            <h3>Live & Services</h3>
+            <a href="#live">Watch Live</a>
+            <a href="#programs">Service Times</a>
         </div>
-    
-<section id="newsletter" style="background:#6a0dad; color:white;">
-    <h2>Join Our Learning Community</h2>
-    <p>Subscribe to receive insights, learning resources, and updates.</p>
+    </div>
 
-    <form id="newsletterForm" style="max-width:400px;margin:auto;">
-        <input type="email" id="email"
-               placeholder="Enter your email"
-               required
-               style="width:100%;padding:12px;border:none;border-radius:5px;margin-bottom:10px;">
-        <button type="submit"
-                style="width:100%;padding:12px;border:none;border-radius:5px;
-                background:#4b0082;color:white;font-size:16px;cursor:pointer;">
-            Subscribe
-        </button>
-        <p id="message" style="margin-top:10px;"></p>
-    </form>
-</section>
-
-  
+    <p style="text-align:center; margin-top:20px;">
+        © 2026 Bukokholo Pefa Church. All Rights Reserved.
+    </p>
 </footer>
 
-<!-- UNDER FOOTER -->
-<div class="under-footer">
-    <p>
-        © 2026 Manifest Concept International |
-        <a href="#">Privacy</a> |
-        <a href="#">Terms</a> |
-        <a href="#">Support</a>
-    </p>
-</div>
-  <div class="footer-column">
-    <h3>Connect With Us</h3>
-    <a href="#" target="_blank">Facebook</a>
-    <a href="#" target="_blank">Instagram</a>
-    <a href="#" target="_blank">LinkedIn</a>
-    <a href="#" target="_blank">YouTube</a>
-</div>
-
-
-<!-- WhatsApp Button -->
-<a class="whatsapp-btn"
-   href="https://wa.me/27743268987"
-   target="_blank"
-   title="Chat with us on WhatsApp">
-    💬
+<a class="chat-button" href="https://wa.me/254743268987" target="_blank">
+    💬 Chat With Us
 </a>
+
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href'))
+                .scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
 
 </body>
 </html>
