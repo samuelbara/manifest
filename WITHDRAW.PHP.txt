@@ -1,0 +1,13 @@
+<?php
+session_start();
+include "config.php";
+
+$user_id = $_SESSION['user_id'];
+$amount = $_POST['amount'];
+$mpesa = $_POST['mpesa'];
+
+$conn->query("INSERT INTO withdrawals (user_id, amount, mpesa_number)
+VALUES ('$user_id','$amount','$mpesa')");
+
+echo "Withdrawal request submitted. Await approval.";
+?>
