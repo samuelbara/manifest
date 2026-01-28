@@ -2,275 +2,328 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bukokholo Pefa Church</title>
+    <title>Bukokholo PEFA Church</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f5;
-            line-height: 1.6;
+        :root{
+            --orange:#f57c00;
+            --blue:#0a2a66;
         }
 
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background:#f9f9f9;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
+        /* ===== HEADER ===== */
+        header{
+            background:var(--blue);
+            padding:15px;
         }
 
-        .logo-box {
-            width: 60px;
-            height: 60px;
-            background: white;
-            color: #2c3e50;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            margin-right: 10px;
+        nav{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
         }
 
-        nav a {
-            color: white;
-            margin-left: 15px;
-            text-decoration: none;
-            font-weight: bold;
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:10px 15px;
+            font-weight:bold;
         }
 
-        section {
-            background: white;
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 40px 20px;
+        nav a:hover{
+            color:var(--orange);
         }
 
-        h2 {
-            color: #2c3e50;
+        .dropdown{
+            position:relative;
+            display:inline-block;
         }
 
-        iframe {
-            width: 100%;
-            height: 380px;
-            border: none;
-            margin-bottom: 20px;
+        .dropdown-content{
+            display:none;
+            position:absolute;
+            background:white;
+            min-width:200px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+            z-index:1;
         }
 
-        .program-box, .giving-box {
-            background: #f1f1f1;
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 15px;
+        .dropdown-content a{
+            color:var(--blue);
+            padding:10px;
+            display:block;
         }
 
-        footer {
-            background: #1a252f;
-            color: white;
-            padding: 40px 20px;
+        .dropdown-content a:hover{
+            background:var(--orange);
+            color:white;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+        .dropdown:hover .dropdown-content{
+            display:block;
         }
 
-        footer h3 {
-            color: #f1c40f;
+        /* ===== SLIDER ===== */
+        .slider{
+            border:3px solid var(--orange);
+            margin:20px;
+            height:300px;
+            overflow:hidden;
         }
 
-        footer a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 6px;
+        .slides{
+            display:flex;
+            width:300%;
+            animation:slide 12s infinite;
         }
 
-        .chat-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
+        .slides img{
+            width:100%;
+            height:300px;
+            object-fit:cover;
+        }
+
+        @keyframes slide{
+            0%{margin-left:0;}
+            33%{margin-left:-100%;}
+            66%{margin-left:-200%;}
+        }
+
+        /* ===== BODY SECTIONS ===== */
+        .section{
+            padding:30px;
+            text-align:center;
+        }
+
+        .box{
+            border:3px solid var(--orange);
+            padding:20px;
+            margin:20px auto;
+            max-width:900px;
+            background:white;
+        }
+
+        .shadow-box{
+            border:3px solid var(--orange);
+            box-shadow:0 5px 10px black;
+            padding:20px;
+            margin:20px auto;
+            max-width:900px;
+            background:white;
+        }
+
+        .section a{
+            color:var(--orange);
+            font-weight:bold;
+            text-decoration:none;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:10px;
+            padding:20px;
+        }
+
+        .gallery img{
+            width:100%;
+            height:200px;
+            object-fit:cover;
+            transition:transform 0.5s;
+        }
+
+        .gallery img:hover{
+            transform:scale(1.1);
+        }
+
+        .gallery-wrap{
+            background:rgba(245,124,0,0.3);
+            padding:20px;
+            margin:20px;
+        }
+
+        /* ===== SUBSCRIBE ===== */
+        .subscribe{
+            text-align:center;
+            padding:30px;
+        }
+
+        input[type=email]{
+            padding:10px;
+            width:250px;
+        }
+
+        button{
+            padding:10px 20px;
+            background:var(--orange);
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        /* ===== FOOTER ===== */
+        footer{
+            background:var(--blue);
+            color:white;
+            padding:30px;
+        }
+
+        footer a{
+            color:var(--orange);
+            text-decoration:none;
+            display:block;
+            margin:5px 0;
+        }
+
+        /* ===== CHAT BUTTON ===== */
+        .chat-btn{
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            background:var(--orange);
+            color:white;
+            padding:15px;
+            border-radius:50%;
+            text-decoration:none;
+            font-size:20px;
         }
     </style>
 </head>
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
-    <div class="logo">
-        <div class="logo-box">LOGO</div>
-        <div>
-            <h1 style="margin:0;">Bukokholo Pefa Church</h1>
-            <small>Transforming Lives • Raising Kingdom Leaders</small>
-        </div>
-    </div>
-
     <nav>
-        <a href="#about">About</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#programs">Programs</a>
-        <a href="#live">Live</a>
-        <a href="#giving">Giving</a>
-        <a href="#contact">Contact</a>
+        <a href="#">Home</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="giving.html">Giving</a>
+
+        <div class="dropdown">
+            <a href="#">Live ▼</a>
+            <div class="dropdown-content">
+                <a href="#">Sermon</a>
+                <a href="https://www.youtube.com" target="_blank">Watch Online</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#">Find a Place ▼</a>
+            <div class="dropdown-content">
+                <a href="#">Service Campus</a>
+                <a href="https://pefabukokholo.org">PEFA Bukokholo Minister</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#">Who We Are ▼</a>
+            <div class="dropdown-content">
+                <a href="#">About Us</a>
+                <a href="#">The Journey</a>
+                <a href="#">Bishop Godfrey Simiyu</a>
+                <a href="#">PEFA Sirisha District Leadership</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#">Resources ▼</a>
+            <div class="dropdown-content">
+                <a href="#">Pastoral Care</a>
+                <a href="#">Crisis Care</a>
+                <a href="#">Family Life</a>
+            </div>
+        </div>
     </nav>
 </header>
 
-<section id="about">
+<!-- ===== SLIDER ===== -->
+<div class="slider">
+    <div class="slides">
+        <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65">
+        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+    </div>
+</div>
+
+<!-- ===== SUNDAY SERVICE ===== -->
+<div class="section">
+    <h2>Sunday Service</h2>
+    <p><a href="#">Read Our Welcome Note</a></p>
+    <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754" width="300">
+</div>
+
+<!-- ===== ABOUT US ===== -->
+<div class="box">
     <h2>About Us</h2>
-    <p>
-        Bukokholo Pefa Church is a Christ-centered ministry committed to preaching the Gospel,
-        prayer, discipleship, and transforming lives through the power of God’s Word.
-    </p>
-</section>
+    <p>Bukokholo PEFA Church is a Christ-centered church committed to worship, discipleship, missions and community transformation.</p>
+</div>
 
-<section id="leadership">
-    <h2>Bishop Godfrey Simiyu & Leadership</h2>
-    <p>
-        The church is led by <strong>Bishop Godfrey Simiyu</strong>, a visionary servant of God
-        with a passion for revival and raising Kingdom leaders, supported by a dedicated leadership team.
-    </p>
-</section>
+<!-- ===== SUNDAY SCHOOL ===== -->
+<div class="shadow-box">
+    <h2>Sunday School Ministry</h2>
+    <p>Our Sunday Kids ministry nurtures children in the love of Christ through fun, learning and faith.</p>
+    <a href="sundayschool.html">Learn More</a>
+</div>
 
-<!-- SERVICE TIMES -->
-<section id="programs">
-    <h2>Service Times & Weekly Programs</h2>
+<!-- ===== MINISTRIES ===== -->
+<div class="section">
+    <h2>Our Ministries</h2>
+    <p><a href="men.html">Men Ministry</a></p>
+    <p><a href="women.html">Women Ministry</a></p>
+    <p><a href="missions.html">Missions</a></p>
+</div>
 
-    <div class="program-box">
-        <h3>Sunday Services</h3>
-        <p>
-            Morning Service: <strong>9:00 AM – 12:00 PM</strong><br>
-            Evening Service: <strong>5:00 PM – 7:00 PM</strong>
-        </p>
-    </div>
-
-    <div class="program-box">
-        <h3>Midweek Fellowship</h3>
-        <p>
-            Wednesday: <strong>6:00 PM – 8:00 PM</strong>
-        </p>
-    </div>
-
-    <div class="program-box">
-        <h3>Prayer & Intercession</h3>
-        <p>
-            Friday: <strong>6:00 PM – 8:00 PM</strong>
-        </p>
-    </div>
-</section>
-
-<!-- LIVE STREAMING -->
-<section id="live">
-    <h2>Live Church Services</h2>
-    <p>Join us live via YouTube or Facebook.</p>
-
-    <!-- YouTube Live -->
-    <h3>YouTube Live</h3>
-    <iframe 
-        src="https://www.youtube.com/embed/VIDEO_ID"
-        allowfullscreen>
-    </iframe>
-
-    <!-- Facebook Live -->
-    <h3>Facebook Live</h3>
-    <iframe 
-        src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/YOURPAGE/videos/VIDEO_ID&show_text=false"
-        allowfullscreen>
-    </iframe>
-</section>
-
-<!-- ONLINE GIVING -->
-<section id="giving">
-    <h2>Online Giving</h2>
-
-    <div class="giving-box">
-        <h3>M-Pesa</h3>
-        <p>
-            Paybill: <strong>123456</strong><br>
-            Account Name: <strong>Bukokholo Pefa Church</strong>
-        </p>
-    </div>
-
-    <div class="giving-box">
-        <h3>Bank Transfer</h3>
-        <p>
-            Bank: <strong>ABC Bank</strong><br>
-            Account Number: <strong>000123456789</strong>
-        </p>
-    </div>
-
-    <div class="giving-box">
-        <h3>PayPal</h3>
-        <a href="#" target="_blank">Give via PayPal</a>
-    </div>
-</section>
-
-<section id="contact">
+<!-- ===== CONTACT INFO ===== -->
+<div class="section">
     <h2>Contact Us</h2>
-    <p>
-        Phone / WhatsApp: <strong>0743 268 987</strong><br>
-        Email: info@bukokholopefachurch.org
-    </p>
-</section>
+    <p>Phone: 0743268987</p>
+    <p>Email: samuelwafula010@gmail.com</p>
+</div>
 
-<footer>
-    <div class="footer-grid">
-        <div>
-            <h3>About Us</h3>
-            <p>Bukokholo Pefa Church exists to glorify God and raise Kingdom leaders.</p>
-        </div>
+<!-- ===== SUBSCRIBE ===== -->
+<div class="subscribe">
+    <h3>Subscribe to Our Email</h3>
+    <form action="mailto:samuelwafula010@gmail.com">
+        <input type="email" placeholder="Enter your email">
+        <button>Subscribe</button>
+    </form>
+</div>
 
-        <div>
-            <h3>Leadership</h3>
-            <a href="#">Bishop Godfrey Simiyu</a>
-            <a href="#">Church Leadership</a>
-        </div>
-
-        <div>
-            <h3>Contact Us</h3>
-            <a href="tel:0743268987">Call Us</a>
-            <a href="https://wa.me/254743268987">WhatsApp Chat</a>
-        </div>
-
-        <div>
-            <h3>Live & Services</h3>
-            <a href="#live">Watch Live</a>
-            <a href="#programs">Service Times</a>
-        </div>
+<!-- ===== GALLERY ===== -->
+<div class="gallery-wrap">
+    <h2 style="text-align:center;">Church Service Gallery</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df">
+        <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+        <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754">
     </div>
+</div>
 
-    <p style="text-align:center; margin-top:20px;">
-        © 2026 Bukokholo Pefa Church. All Rights Reserved.
-    </p>
+<!-- ===== FOOTER ===== -->
+<footer>
+    <h3>Quick Links</h3>
+    <a href="#">Get in Touch</a>
+    <a href="#">Live Stream</a>
+    <a href="#">Announcements</a>
+    <a href="#">Service & Campuses</a>
+    <a href="#">Ministers & Giving</a>
+    <a href="#">About Bishop Godfrey Simiyu</a>
+    <a href="#">Leadership</a>
+    <a href="#">Who We Are</a>
+    <a href="#">The Journey</a>
 </footer>
 
-<a class="chat-button" href="https://wa.me/254743268987" target="_blank">
-    💬 Chat With Us
-</a>
-
-<script>
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href'))
-                .scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-</script>
+<!-- ===== CHAT BUTTON ===== -->
+<a class="chat-btn" href="https://wa.me/254743268987">💬</a>
 
 </body>
 </html>
