@@ -1,272 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF‑8">
+    <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
     <title>Bukokholo PEFA Church</title>
     <style>
-        /* GENERAL STYLES */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* HEADER */
-        header {
-            background-color: #4169E1;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        header .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav li {
-            position: relative;
-            margin: 0 15px;
-            cursor: pointer;
-        }
-
-        nav li:hover > ul {
-            display: block;
-        }
-
-        nav li a {
-            color: white;
-            font-weight: bold;
-        }
-
-        nav li ul {
-            display: none;
-            position: absolute;
-            top: 35px;
-            left: 0;
-            background-color: #4169E1;
-            padding: 10px 0;
-            border-radius: 5px;
-            min-width: 150px;
-        }
-
-        nav li ul li {
-            padding: 5px 20px;
-        }
-
-        nav li ul li:hover {
-            background-color: #FFA500;
-        }
-
-        nav li::after {
-            content: " ▼";
-            font-size: 12px;
-        }
-
-        nav li ul li::after {
-            content: "";
-        }
-
-        /* IMAGE SLIDER */
-        .slider {
-            position: relative;
-            max-width: 100%;
-            height: 500px;
-            overflow: hidden;
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 1s ease-in-out;
-        }
-
-        .slides img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .welcome-note {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            border: 3px solid #FFA500;
-            padding: 10px 20px;
-            background: rgba(0,0,0,0.5);
-            border-radius: 5px;
-        }
-
-        /* ABOUT SECTION */
-        .about {
-            margin: 50px auto;
-            width: 90%;
-            padding: 20px;
-            border: 3px solid #FFA500;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-            background: white;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        /* MINISTRIES */
-        .ministry-section {
-            margin: 50px auto;
-            width: 90%;
-            text-align: center;
-        }
-
-        .ministry-section h2 {
-            color: #4169E1;
-            margin-bottom: 20px;
-        }
-
-        .ministry {
-            border: 3px solid #FFA500;
-            padding: 20px;
-            margin-bottom: 50px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            background: white;
-        }
-
-        .ministry img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            margin-bottom: 10px;
-            transition: 1s;
-        }
-
-        /* CONTACT & SUBSCRIBE */
-        .contact-section, .subscribe-section {
-            margin: 50px auto;
-            width: 90%;
-            text-align: center;
-        }
-
-        .contact-box, .subscribe-box {
-            border: 3px solid #FFA500;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            background: white;
-        }
-
-        .contact-box a, .subscribe-box input[type="submit"] {
-            background-color: #FFA500;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .subscribe-box input[type="email"] {
-            padding: 10px;
-            width: 300px;
-            margin-right: 10px;
-            border: 1px solid #4169E1;
-            border-radius: 5px;
-        }
-
-        /* CHAT BUTTON */
-        .chat-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #FFA500;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-
-        /* GALLERY */
-        .gallery {
-            margin: 50px auto;
-            width: 90%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: 1s;
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: #4169E1;
-            color: white;
-            padding: 40px 50px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .footer-links div {
-            margin: 10px;
-        }
-
-        .footer-links h3 {
-            border-bottom: 2px solid #FFA500;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            display: block;
-            margin-bottom: 5px;
-            color: white;
-        }
-
-        /* RESPONSIVE */
-        @media(max-width:768px) {
-            header {
-                flex-direction: column;
-            }
-            nav ul {
-                flex-direction: column;
-            }
-            nav li {
-                margin: 10px 0;
-            }
-        }
+        body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
+        a { text-decoration: none; color: inherit; }
+        header { background: #4169E1; padding: 10px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; color: white; }
+        header .logo img { height: 50px; margin-right: 10px; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav li { margin: 0 15px; position: relative; cursor: pointer; font‑weight: bold; }
+        nav li:hover > ul { display: block; }
+        nav li ul { display: none; position: absolute; background: #4169E1; top: 30px; left: 0; padding: 10px 0; border‑radius: 5px; min‑width: 150px; }
+        nav li ul li { padding: 6px 20px; }
+        nav li ul li:hover { background: #FFA500; }
+        nav li::after { content: " ▼"; font-size: 12px; }
+        nav li ul li::after { content: ""; }
+        .slider { position: relative; height: 500px; overflow: hidden; }
+        .slider img { position: absolute; width: 100%; height: 500px; object‑fit: cover; opacity: 0; transition: opacity 1s ease; }
+        .slider img.active { opacity: 1; }
+        .welcome-note { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); border: 3px solid #FFA500; padding: 10px 20px; color: white; font-size: 28px; font‑weight: bold; border‑radius: 5px; }
+        .about { width: 90%; margin: 50px auto; padding: 20px; border: 3px solid #FFA500; box-shadow: 0 4px 8px rgba(0,0,0,0.4); background: white; text-align: center; font-size: 16px; }
+        .ministry { width: 90%; margin: 40px auto; border: 3px solid #FFA500; padding: 20px; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .ministry img { width: 100%; max‑height: 350px; object‑fit: cover; margin: 10px 0; opacity: 0; transition: opacity 1s ease; }
+        .ministry img.visible { opacity: 1; }
+        .contact‑box, .subscribe‑box { border: 3px solid #FFA500; margin: 20px auto; padding: 20px; width: 90%; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.3); text-align: center; }
+        .contact‑box a, .subscribe‑box input[type="submit"] { background: #FFA500; color: white; padding: 10px 20px; border: none; font‑weight: bold; cursor: pointer; margin‑top: 10px; }
+        .subscribe‑box input[type="email"] { padding: 10px; width: 280px; border: 1px solid #4169E1; border‑radius: 5px; margin‑right: 10px; }
+        .chat-btn { position: fixed; bottom: 20px; right: 20px; background: #FFA500; color: white; padding: 15px 20px; border‑radius: 50px; font‑weight: bold; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .gallery { display: grid; grid‑template‑columns: repeat(auto‑fit, minmax(250px,1fr)); gap: 15px; margin: 50px auto; width: 90%; }
+        .gallery img { width: 100%; height: 200px; object‑fit: cover; opacity: 0; transition: opacity 1s ease; }
+        .gallery img.visible { opacity: 1; }
+        footer { background: #4169E1; color: white; padding: 40px 50px; }
+        .footer‑links { display: flex; justify‑content: space‑between; flex‑wrap: wrap; }
+        .footer‑links div { margin: 10px; }
+        .footer‑links h3 { border‑bottom: 2px solid #FFA500; padding‑bottom: 5px; margin‑bottom: 10px; }
+        .footer‑links a { display: block; margin‑bottom: 5px; color: white; }
     </style>
 </head>
 <body>
@@ -274,197 +44,107 @@
     <!-- HEADER -->
     <header>
         <div class="logo">
-            <img src="logo.png" alt="Bukokholo PEFA Church Logo">
+            <img src="https://images.pexels.com/photos/716411/pexels‑photo‑716411.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=50&w=50" alt="Church Logo">
             <h1>Bukokholo PEFA Church</h1>
         </div>
         <nav>
             <ul>
                 <li>Home
-                    <ul>
-                        <li><a href="#">Welcome</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Announcements</a></li>
-                        <li><a href="#">Campuses</a></li>
-                    </ul>
+                    <ul><li><a href="#">Welcome</a></li><li><a href="#">Services</a></li><li><a href="#">Announcements</a></li><li><a href="#">Campuses</a></li></ul>
                 </li>
                 <li>About Us
-                    <ul>
-                        <li><a href="#">Bishop Godfrey Simiyu</a></li>
-                        <li><a href="#">Leadership</a></li>
-                        <li><a href="#">Who We Are</a></li>
-                        <li><a href="#">The Journey</a></li>
-                    </ul>
+                    <ul><li><a href="#">Bishop Godfrey Simiyu</a></li><li><a href="#">Leadership</a></li><li><a href="#">Who We Are</a></li><li><a href="#">The Journey</a></li></ul>
                 </li>
                 <li>Live
-                    <ul>
-                        <li><a href="#">Stream 1</a></li>
-                        <li><a href="#">Stream 2</a></li>
-                        <li><a href="#">Stream 3</a></li>
-                        <li><a href="#">Archive</a></li>
-                    </ul>
+                    <ul><li><a href="#">Stream 1</a></li><li><a href="#">Stream 2</a></li><li><a href="#">Stream 3</a></li><li><a href="#">Archive</a></li></ul>
                 </li>
                 <li>Find a Place
-                    <ul>
-                        <li><a href="#">Location 1</a></li>
-                        <li><a href="#">Location 2</a></li>
-                        <li><a href="#">Location 3</a></li>
-                        <li><a href="#">Contact Info</a></li>
-                    </ul>
-                </li>
-                <li>Who We Are
-                    <ul>
-                        <li><a href="#">Mission</a></li>
-                        <li><a href="#">Vision</a></li>
-                        <li><a href="#">Values</a></li>
-                        <li><a href="#">History</a></li>
-                    </ul>
+                    <ul><li><a href="#">Location 1</a></li><li><a href="#">Location 2</a></li><li><a href="#">Location 3</a></li><li><a href="#">Contact</a></li></ul>
                 </li>
                 <li>Resources
-                    <ul>
-                        <li><a href="#">Ministers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Giving</a></li>
-                        <li><a href="#">Media</a></li>
-                    </ul>
+                    <ul><li><a href="#">Ministers</a></li><li><a href="#">Blog</a></li><li><a href="#">Giving</a></li><li><a href="#">Media</a></li></ul>
                 </li>
                 <li>Giving
-                    <ul>
-                        <li><a href="#">Tithes</a></li>
-                        <li><a href="#">Offerings</a></li>
-                        <li><a href="#">Online Giving</a></li>
-                        <li><a href="#">Sponsorship</a></li>
-                    </ul>
+                    <ul><li><a href="#">Tithes</a></li><li><a href="#">Offerings</a></li><li><a href="#">Online</a></li><li><a href="#">Sponsorship</a></li></ul>
                 </li>
                 <li>Contact
-                    <ul>
-                        <li><a href="#">Email</a></li>
-                        <li><a href="#">Phone</a></li>
-                        <li><a href="#">Location</a></li>
-                        <li><a href="#">Social Media</a></li>
-                    </ul>
+                    <ul><li><a href="#">Email</a></li><li><a href="#">Phone</a></li><li><a href="#">Location</a></li><li><a href="#">Socials</a></li></ul>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <!-- IMAGE SLIDER -->
+    <!-- FADE IMAGE SLIDER -->
     <div class="slider">
-        <div class="slides" id="slides">
-            <img src="img1.jpg" alt="Church Image 1">
-            <img src="img2.jpg" alt="Church Image 2">
-            <img src="img3.jpg" alt="Church Image 3">
-            <img src="img4.jpg" alt="Church Image 4">
-            <img src="img5.jpg" alt="Church Image 5">
-            <img src="img6.jpg" alt="Church Image 6">
-            <img src="img7.jpg" alt="Church Image 7">
-            <img src="img8.jpg" alt="Church Image 8">
-            <img src="img9.jpg" alt="Church Image 9">
-            <img src="img10.jpg" alt="Church Image 10">
-        </div>
+        <img src="https://images.pexels.com/photos/5593246/pexels‑photo‑5593246.jpeg?auto=compress&cs=tinysrgb&w=1200" class="active">
+        <img src="https://images.pexels.com/photos/6147175/pexels‑photo‑6147175.jpeg?auto=compress&cs=tinysrgb&w=1200">
+        <img src="https://images.pexels.com/photos/714700/pexels‑photo‑714700.jpeg?auto=compress&cs=tinysrgb&w=1200">
+        <img src="https://images.pexels.com/photos/9665561/pexels‑photo‑9665561.jpeg?auto=compress&cs=tinysrgb&w=1200">
         <div class="welcome-note">Welcome to Bukokholo PEFA Church!</div>
     </div>
 
     <!-- ABOUT -->
     <div class="about">
-        Bukokholo PEFA Church is committed to spreading the gospel of Jesus Christ with love, unity, and devotion.
+        Bukokholo PEFA Church is committed to spreading the gospel with love, unity, and devotion as a community of faith.
     </div>
 
     <!-- MINISTRIES -->
-    <div class="ministry-section">
-        <div class="ministry">
-            <h2>Sunday School Ministry</h2>
-            <p>Our Sunday School ministry nurtures children in faith and biblical knowledge.</p>
-            <img src="sundayschool1.jpg" alt="Sunday School">
-            <img src="sundayschool2.jpg" alt="Sunday School Teaching">
-        </div>
-
-        <div class="ministry">
-            <h2>Men Ministry</h2>
-            <p>Empowering men to grow spiritually and lead in their homes and communities.</p>
-            <img src="men1.jpg" alt="Men Ministry">
-            <img src="men2.jpg" alt="Men Gathering">
-        </div>
-
-        <div class="ministry">
-            <h2>Women Ministry</h2>
-            <p>Supporting women to grow spiritually, emotionally, and socially.</p>
-            <img src="women1.jpg" alt="Women Ministry">
-            <img src="women2.jpg" alt="Women Gathering">
-        </div>
-
-        <div class="ministry">
-            <h2>Praise & Worship Ministry</h2>
-            <p>Leading the congregation in worship through music and praise.</p>
-            <img src="praise1.jpg" alt="Praise Ministry">
-            <img src="praise2.jpg" alt="Worship Gathering">
-        </div>
-
-        <div class="ministry">
-            <h2>Prison Ministry</h2>
-            <p>Bringing hope and spiritual guidance to inmates.</p>
-            <img src="prison1.jpg" alt="Prison Ministry">
-            <img src="prison2.jpg" alt="Prison Outreach">
-        </div>
-
-        <div class="ministry">
-            <h2>Hospital Ministry</h2>
-            <p>Visiting the sick and providing comfort through prayers and support.</p>
-            <img src="hospital1.jpg" alt="Hospital Ministry">
-            <img src="hospital2.jpg" alt="Hospital Visit">
-        </div>
-
-        <div class="ministry">
-            <h2>Children's Home Ministry</h2>
-            <p>Caring for orphans and vulnerable children with love and compassion.</p>
-            <img src="children1.jpg" alt="Children's Home">
-            <img src="children2.jpg" alt="Children's Activities">
-        </div>
+    <div class="ministry">
+        <h2>Sunday School Ministry</h2>
+        <p>Our Sunday School nurtures children with biblical teaching and fun learning.</p>
+        <img src="https://images.pexels.com/photos/4098860/pexels‑photo‑4098860.jpeg?auto=compress&cs=tinysrgb&w=1200">
     </div>
 
-    <!-- SUNDAY SERVICE WELCOME NOTE -->
-    <div class="contact-section">
-        <div class="contact-box">
-            <h2>Sunday Service Welcome Note</h2>
-            <p><a href="sundayservice.html">Read More</a></p>
-        </div>
+    <div class="ministry">
+        <h2>Men Ministry</h2>
+        <p>Empowering men to grow spiritually and lead in life and community.</p>
+        <img src="https://images.pexels.com/photos/5034155/pexels‑photo‑5034155.jpeg?auto=compress&cs=tinysrgb&w=1200">
     </div>
 
-    <!-- CONTACT & SUBSCRIBE -->
-    <div class="contact-section">
-        <div class="contact-box">
-            <h2>Contact Us</h2>
-            <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
-            <p>Phone: <a href="tel:0743268987">0743268987</a></p>
-        </div>
-        <div class="subscribe-box">
-            <h2>Subscribe to our Newsletter</h2>
-            <form action="mailto:samuelwafula010@gmail.com" method="post" enctype="text/plain">
-                <input type="email" name="email" placeholder="Your email" required>
-                <input type="submit" value="Subscribe">
-            </form>
-        </div>
+    <div class="ministry">
+        <h2>Women Ministry</h2>
+        <p>Supporting women in faith, fellowship, and service.</p>
+        <img src="https://images.pexels.com/photos/3769021/pexels‑photo‑3769021.jpeg?auto=compress&cs=tinysrgb&w=1200">
     </div>
 
-    <!-- CHAT BUTTON -->
+    <div class="ministry">
+        <h2>Praise & Worship Ministry</h2>
+        <p>Leading vibrant worship and praise to glorify God.</p>
+        <img src="https://images.pexels.com/photos/913393/pexels‑photo‑913393.jpeg?auto=compress&cs=tinysrgb&w=1200">
+    </div>
+
+    <!-- CONTACT + SUBSCRIBE -->
+    <div class="contact‑box">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
+        <p>Tel: <a href="tel:0743268987">0743268987</a></p>
+    </div>
+
+    <div class="subscribe‑box">
+        <h2>Subscribe to our Newsletter</h2>
+        <form action="mailto:samuelwafula010@gmail.com" method="post" enctype="text/plain">
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="submit" value="Subscribe">
+        </form>
+    </div>
+
     <div class="chat-btn" onclick="window.location.href='tel:0743268987'">Chat with Us</div>
 
     <!-- GALLERY -->
     <div class="gallery">
-        <img src="gallery1.jpg" alt="Gallery 1">
-        <img src="gallery2.jpg" alt="Gallery 2">
-        <img src="gallery3.jpg" alt="Gallery 3">
-        <img src="gallery4.jpg" alt="Gallery 4">
-        <img src="gallery5.jpg" alt="Gallery 5">
-        <img src="gallery6.jpg" alt="Gallery 6">
+        <img src="https://images.pexels.com/photos/624015/pexels‑photo‑624015.jpeg?auto=compress&cs=tinysrgb&w=1200">
+        <img src="https://images.pexels.com/photos/9994917/pexels‑photo‑9994917.jpeg?auto=compress&cs=tinysrgb&w=1200">
+        <img src="https://images.pexels.com/photos/4021950/pexels‑photo‑4021950.jpeg?auto=compress&cs=tinysrgb&w=1200">
+        <img src="https://images.pexels.com/photos/764880/pexels‑photo‑764880.jpeg?auto=compress&cs=tinysrgb&w=1200">
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-links">
+        <div class="footer‑links">
             <div>
                 <h3>Get in Touch</h3>
-                <a href="mailto:samuelwafula010@gmail.com">Email Us</a>
-                <a href="tel:0743268987">Call Us</a>
+                <a href="mailto:samuelwafula010@gmail.com">Email</a>
+                <a href="tel:0743268987">Call</a>
             </div>
             <div>
                 <h3>Resources</h3>
@@ -477,7 +157,6 @@
                 <a href="#">Bishop Godfrey Simiyu</a>
                 <a href="#">Leadership</a>
                 <a href="#">Who We Are</a>
-                <a href="#">The Journey</a>
             </div>
             <div>
                 <h3>Quick Links</h3>
@@ -489,32 +168,26 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
+    <!-- SCRIPT -->
     <script>
-        // IMAGE SLIDER
-        const slides = document.getElementById('slides');
-        let index = 0;
-        const total = slides.children.length;
-
+        const slides = document.querySelectorAll('.slider img');
+        let current = 0;
         setInterval(() => {
-            index++;
-            if(index >= total) index = 0;
-            slides.style.transform = `translateX(-${index * 100}%)`;
-        }, 1000); // change every 1 second
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 2000);
 
-        // Simple hover image transition
-        const galleryImages = document.querySelectorAll('.gallery img');
-        galleryImages.forEach(img => {
-            img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.05)');
-            img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
-        });
-
-        // Ministry image transition
-        const ministryImages = document.querySelectorAll('.ministry img');
-        ministryImages.forEach(img => {
-            img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.05)');
-            img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
-        });
+        function fadeOnScroll() {
+            document.querySelectorAll('.ministry img, .gallery img').forEach(img => {
+                if (window.innerHeight + window.scrollY > img.offsetTop + 100) {
+                    img.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', fadeOnScroll);
+        window.addEventListener('load', fadeOnScroll);
     </script>
+
 </body>
 </html>
