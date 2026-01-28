@@ -2,158 +2,161 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PEFA Sirisha District</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PEFA Sirisha District</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f8f8f8;
+:root{
+    --orange:#ff8c00;
+    --dark:#111;
 }
 
-/* HEADER */
-header {
-    background: #111;
-    color: white;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    animation: slideIn 2s ease;
+/* ================= HEADER ================= */
+header{
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.logo img {
-    height: 60px;
-    margin-right: 15px;
-    animation: rotateLogo 5s infinite linear;
+.header-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 20px;
 }
 
-@keyframes rotateLogo {
-    from { transform: rotate(0); }
-    to { transform: rotate(360deg); }
+.logo-area{
+    display:flex;
+    align-items:center;
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
+.logo-area img{
+    width:60px;
+    margin-right:10px;
+    animation:logoZoom 2s infinite alternate;
 }
 
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
+@keyframes logoZoom{
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
 }
 
-nav a:hover {
-    color: orange;
+nav a{
+    margin:0 10px;
+    text-decoration:none;
+    color:#000;
+    font-weight:bold;
 }
 
-/* HERO */
-.hero {
-    background: url("https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d") center/cover;
-    padding: 120px 20px;
-    text-align: center;
+nav a:hover{
+    color:var(--orange);
 }
 
-.hero-box {
-    border: 3px solid orange;
-    padding: 30px;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    animation: fadeIn 2s ease;
+/* ================= HERO ================= */
+.hero{
+    height:400px;
+    background:url("https://images.unsplash.com/photo-1529070538774-1843cb3265df") center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.hero-box{
+    border:4px solid var(--orange);
+    padding:40px;
+    background:rgba(0,0,0,0.6);
+    color:#fff;
+    animation:fadeIn 2s;
 }
 
-/* SECTION BOX */
-.section-box {
-    border: 3px solid orange;
-    background: white;
-    margin: 40px auto;
-    padding: 30px;
-    width: 85%;
-    box-shadow: 0 0 15px black;
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-/* MINISTRIES */
-.ministry {
-    margin: 50px auto;
-    width: 85%;
+/* ================= SECTIONS ================= */
+section{
+    padding:40px 20px;
 }
 
-.ministry-box {
-    border: 3px solid orange;
-    padding: 25px;
-    background: white;
+.box{
+    border:3px solid var(--orange);
+    padding:20px;
+    background:#fff;
+    box-shadow:5px 5px 0 #000;
+    margin-bottom:30px;
+    animation:slideUp 1.5s;
 }
 
-/* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 15px;
-    margin-top: 20px;
+@keyframes slideUp{
+    from{transform:translateY(50px); opacity:0;}
+    to{transform:translateY(0); opacity:1;}
 }
 
-.gallery img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    box-shadow: 0 0 10px black;
+/* ================= GALLERY ================= */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
 }
 
-/* ANIMATIONS */
-.left-slide { animation: leftSlide 2s ease; }
-.right-slide { animation: rightSlide 2s ease; }
-.wipe { animation: wipeIn 2s ease; }
-.fly { animation: flyIn 2s ease; }
-
-@keyframes leftSlide {
-    from { transform: translateX(-100px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-@keyframes rightSlide {
-    from { transform: translateX(100px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-@keyframes wipeIn {
-    from { clip-path: inset(0 100% 0 0); }
-    to { clip-path: inset(0 0 0 0); }
-}
-@keyframes flyIn {
-    from { transform: translateY(100px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.gallery img{
+    width:100%;
+    border-radius:8px;
+    animation:floatIn 2s;
 }
 
-/* CONTACT */
-.contact {
-    border: 3px solid orange;
-    padding: 30px;
-    width: 85%;
-    margin: 40px auto;
-    background: white;
+@keyframes floatIn{
+    from{transform:translateX(-50px); opacity:0;}
+    to{transform:translateX(0); opacity:1;}
 }
 
-.chat-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: orange;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
+/* ================= BUTTONS ================= */
+.btn{
+    background:var(--orange);
+    color:#fff;
+    padding:12px 20px;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:10px;
+    border-radius:5px;
+}
+
+/* ================= CONTACT ================= */
+.contact-box{
+    border:3px solid var(--orange);
+    padding:20px;
+    background:#fff;
+}
+
+/* ================= CHAT BUTTON ================= */
+.chat-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:var(--orange);
+    color:#fff;
+    padding:15px;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:18px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#000;
+    color:#fff;
+    text-align:center;
+    padding:20px;
 }
 </style>
 </head>
@@ -161,98 +164,133 @@ nav a:hover {
 <body>
 
 <header>
-    <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Christian_cross.svg/1024px-Christian_cross.svg.png">
-        <h2>PEFA Sirisha District</h2>
-    </div>
+    <div class="header-container">
+        <div class="logo-area">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Church_icon.svg/512px-Church_icon.svg.png">
+            <h2>PEFA SIRISHA CHURCHES</h2>
+        </div>
 
-    <nav>
-        <a href="#">LIVE</a>
-        <a href="#">Find a Place</a>
-        <a href="#">Ministers</a>
-        <a href="#">About Us</a>
-        <a href="#">Resources</a>
-        <a href="#">Giving</a>
-        <a href="#contact">Contact</a>
-    </nav>
+        <nav>
+            <a href="#">Live</a>
+            <a href="#">Find a Place</a>
+            <a href="#about">Who We Are</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#resources">Resources</a>
+            <a href="#giving">Giving</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
 </header>
 
-<section class="hero">
+<!-- HERO -->
+<div class="hero">
     <div class="hero-box">
         <h1>Welcome to PEFA Sirisha District</h1>
-        <p>Serving God • Serving People • Transforming Lives</p>
+        <p>Connecting People to Christ</p>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="box">
+        <h2>About Us</h2>
+        <p>
+            PEFA Sirisha District is committed to spreading the Gospel of Jesus Christ
+            through worship, discipleship, and community outreach.
+        </p>
     </div>
 </section>
 
-<div class="section-box">
-    <h2>About Us</h2>
-    <p>PEFA Sirisha District is committed to spreading the Gospel, nurturing faith, and serving communities through Christ-centered ministries.</p>
-</div>
-
-<!-- SUNDAY SCHOOL -->
-<div class="ministry">
-    <div class="ministry-box left-slide">
+<!-- MINISTRIES -->
+<section>
+    <div class="box">
         <h2>Sunday School Ministry</h2>
-        <p>We nurture children spiritually through teaching, worship, and love.</p>
-        <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1526634332515-d56c6e6a9b00">
-            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
-            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136">
-        </div>
+        <p>Teaching children biblical values and nurturing their spiritual growth.</p>
     </div>
-</div>
 
-<!-- HOSPITAL -->
-<div class="ministry">
-    <div class="ministry-box right-slide">
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1503457574465-1f0a3b3b7a9b">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c">
+        <img src="https://images.unsplash.com/photo-1531988042231-d39e1b81a0e8">
+    </div>
+</section>
+
+<section>
+    <div class="box">
         <h2>Hospital Ministry</h2>
-        <p>We bring hope, prayer, and compassion to the sick.</p>
-        <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3">
-            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
-        </div>
+        <p>Bringing hope, prayer, and comfort to the sick and their families.</p>
     </div>
-</div>
 
-<!-- PRISON -->
-<div class="ministry">
-    <div class="ministry-box wipe">
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1580281657521-4c1dc7d6b6a4">
+        <img src="https://images.unsplash.com/photo-1580281780460-82d277b0f8a0">
+    </div>
+</section>
+
+<section>
+    <div class="box">
         <h2>Prison Ministry</h2>
-        <p>Reaching inmates with the message of redemption and restoration.</p>
-        <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
-        </div>
+        <p>Restoring hope and transformation through Christ among inmates.</p>
     </div>
-</div>
 
-<!-- WOMEN -->
-<div class="ministry">
-    <div class="ministry-box fly">
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238">
+    </div>
+</section>
+
+<section>
+    <div class="box">
         <h2>Women Ministry</h2>
-        <p>Empowering women through fellowship, prayer, and service.</p>
-        <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-            <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7">
-        </div>
+        <p>Empowering women spiritually, socially, and economically.</p>
     </div>
-</div>
 
-<div class="section-box">
-    <h2><a href="#">Sunday Service Welcome Note</a></h2>
-</div>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+    </div>
+</section>
 
-<div class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
+<!-- WELCOME NOTE -->
+<section>
+    <div class="box">
+        <h2>Sunday Service Welcome Note</h2>
+        <p>You are warmly invited to worship with us every Sunday.</p>
+        <a href="#" class="btn">Read More</a>
+    </div>
+</section>
 
-    <h3>Subscribe</h3>
-    <form action="mailto:samuelwafula010@gmail.com">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-    </form>
-</div>
+<!-- CONTACT -->
+<section id="contact">
+    <div class="contact-box">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
+        <p>Phone: 0743268987</p>
 
-<a class="chat-btn" href="https://wa.me/254743268987">Chat</a>
+        <form>
+            <input type="email" placeholder="Subscribe to our email" required>
+            <br><br>
+            <button class="btn">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+<a href="tel:0743268987" class="chat-btn">💬</a>
+
+<footer>
+    <p>© 2026 PEFA Sirisha District</p>
+</footer>
+
+<script>
+// simple animation on scroll
+window.addEventListener("scroll",()=>{
+    document.querySelectorAll(".box").forEach(box=>{
+        let position = box.getBoundingClientRect().top;
+        if(position < window.innerHeight){
+            box.style.opacity = "1";
+        }
+    });
+});
+</script>
 
 </body>
 </html>
