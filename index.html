@@ -3,363 +3,248 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bukokholo PEFA Church</title>
+<title>Manifest Concepts International</title>
 
 <style>
-:root{
- --orange:#ff7a00;
- --royal:#002366;
-}
-*{box-sizing:border-box}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- scroll-behavior:smooth;
+:root {
+  --blue: #0b1c3d;
+  --orange: #f7941d;
 }
 
-/* HEADER */
-/* HEADER */
-header{
- position:sticky;
- top:0;
- background:var(--royal);
- color:white;
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:12px 40px;
- z-index:1000;
+/* General */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #222;
 }
 
-/* LOGO */
-header h2{
- margin:0;
- font-size:22px;
- letter-spacing:1px;
+h2 {
+  color: var(--blue);
 }
 
-/* NAV */
-nav ul{
- list-style:none;
- margin:0;
- padding:0;
- display:flex;
- align-items:center;
- gap:10px;
+/* Header */
+header {
+  background: var(--blue);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav li{
- position:relative;
+header h1 {
+  color: white;
+  margin: 0;
 }
 
-nav a{
- color:white;
- padding:10px 14px;
- text-decoration:none;
- font-weight:600;
- font-size:15px;
- transition:background .3s;
- border-radius:4px;
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-nav a:hover{
- background:rgba(255,255,255,0.15);
+nav a:hover {
+  color: var(--orange);
 }
 
-/* DROPDOWN */
-nav ul ul{
- display:none;
- position:absolute;
- top:100%;
- left:0;
- background:var(--royal);
- min-width:200px;
- box-shadow:0 8px 20px rgba(0,0,0,.3);
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
 }
 
-nav ul ul li a{
- padding:10px 15px;
- border-bottom:1px solid rgba(255,255,255,.15);
+.hero img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  animation: slide 15s infinite;
 }
 
-nav li:hover > ul{
- display:block;
+@keyframes slide {
+  0% {opacity: 1;}
+  33% {opacity: 0;}
+  66% {opacity: 1;}
 }
 
-/* MOBILE */
-@media(max-width:768px){
- header{
-  flex-direction:column;
-  align-items:flex-start;
- }
-
- nav ul{
-  flex-direction:column;
-  width:100%;
- }
-
- nav a{
-  width:100%;
- }
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  padding: 40px;
+  background: rgba(11, 28, 61, 0.1);
+  border: 3px solid var(--orange);
+  color: white;
+  text-align: center;
 }
 
-
-/* DROPDOWN */
-nav ul ul{
- display:none;
- position:absolute;
- background:var(--royal);
- top:100%;
- left:0;
- min-width:180px;
-}
-nav ul ul a{
- border-bottom:1px solid rgba(255,255,255,.2);
+/* Content Boxes */
+.section-box {
+  margin: 40px auto;
+  padding: 30px;
+  width: 80%;
+  background: white;
+  border: 3px solid var(--orange);
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
 }
 
-/* SLIDER */
-.slider{height:420px;position:relative;overflow:hidden}
-.slide{display:none}
-.slide img{width:100%;height:420px;object-fit:cover}
-.welcome{
- position:absolute;
- top:30%;
- left:5%;
- border:3px solid var(--orange);
- padding:20px;
- background:rgba(0,0,0,.6);
- color:white;
+/* Contact Box */
+.contact-box {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
 }
 
-/* SECTIONS */
-.section{padding:40px 20px}
-.box,.ministry{
- border:3px solid var(--orange);
- box-shadow:4px 4px black;
- padding:20px;
- margin:auto;
- max-width:1000px;
- margin-bottom:30px;
+/* Subscribe */
+.subscribe input {
+  padding: 10px;
+  width: 60%;
+  margin-right: 10px;
 }
 
-/* GALLERY */
-.gallery{
- display:flex;
- flex-wrap:wrap;
- justify-content:center;
-}
-.gallery img{
- width:300px;
- max-width:90%;
- margin:10px;
- transition:transform 1s;
-}
-.gallery img:hover{transform:scale(1.1)}
-
-/* MAP */
-iframe{
- width:100%;
- height:350px;
- border:3px solid var(--orange);
+.subscribe button {
+  padding: 10px 20px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
-/* CONTACT */
-.contact input{
- padding:10px;
- width:100%;
- max-width:300px;
-}
-.contact button{
- padding:10px;
- background:var(--orange);
- color:white;
- border:none;
- margin-top:10px;
+.subscribe button:hover {
+  background: var(--orange);
 }
 
-/* FOOTER */
-footer{
- background:var(--royal);
- color:white;
- display:flex;
- flex-wrap:wrap;
- justify-content:space-around;
- padding:30px;
-}
-footer a{
- color:var(--orange);
- display:block;
- text-decoration:none;
+/* Footer */
+footer {
+  background: var(--blue);
+  color: white;
+  padding: 40px;
 }
 
-/* WHATSAPP */
-.whatsapp{
- position:fixed;
- bottom:20px;
- right:20px;
- background:var(--orange);
- color:white;
- padding:15px 20px;
- border-radius:50px;
- font-weight:bold;
- text-decoration:none;
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-/* MOBILE */
-@media(max-width:768px){
- nav ul{flex-direction:column}
+footer a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+
+footer a:hover {
+  color: var(--orange);
+}
+
+/* Chat Button */
+.chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--orange);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-<h2>Bukokholo PEFA Church</h2>
-<nav>
-<ul>
-<li><a href="#home">Home</a></li>
-<li>
-<a href="#">About ▾</a>
-<ul>
-<li><a href="#">Bishop Godfrey Simiyu</a></li>
-<li><a href="#">Leadership</a></li>
-<li><a href="#">Who We Are</a></li>
-<li><a href="#">The Journey</a></li>
-</ul>
-</li>
-<li><a href="#live">Live</a></li>
-<li>
-<a href="#">Resources ▾</a>
-<ul>
-<li><a href="#">Ministers</a></li>
-<li><a href="#">Blog</a></li>
-<li><a href="#">Giving</a></li>
-</ul>
-</li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+  <h1>Manifest Concepts International</h1>
+  <nav>
+    <a href="#">About</a>
+    <a href="#">Trainings</a>
+    <a href="#">Consultancy</a>
+    <a href="#">Contact</a>
+    <a href="#">Book Now</a>
+  </nav>
 </header>
 
-<!-- HOME -->
-<section id="home" class="slider">
-<div class="slide"><img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238"></div>
-<div class="slide"><img src="https://images.unsplash.com/photo-1604303890927-04e32d69d33f"></div>
-<div class="slide"><img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8"></div>
-
-<div class="welcome">
-<h2>Welcome to Bukokholo PEFA Church</h2>
-<p>Transforming Lives Through Christ</p>
-</div>
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Students and Trainers">
+  <div class="hero-overlay">
+    <h2>Empowering Growth Through Knowledge & Integrity</h2>
+  </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section">
-<div class="box">
-<h2>About Us</h2>
-<p>
-Bukokholo PEFA Church is a Christ-centered church committed to
-evangelism, discipleship, prayer, and community transformation.
-</p>
-</div>
-</section>
-
-<!-- LIVE -->
-<section id="live" class="section">
-<h2 style="text-align:center">Live Service</h2>
-<iframe src="https://www.youtube.com/embed/live_stream?channel=CHANNEL_ID" allowfullscreen></iframe>
-</section>
-
-<!-- MINISTRIES -->
-<section class="section">
-<div class="ministry">
-<h2>Sunday School Ministry</h2>
-<p>Training children in God’s Word with love and care.</p>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
-</div>
+<div class="section-box">
+  <h2>Who We Are</h2>
+  <p>
+    We are a leading corporate training and business consultancy firm, fostering growth,
+    integrity, and an ever-evolving corporate environment.
+  </p>
 </div>
 
-<div class="ministry"><h2>Youth Ministry</h2><p>Raising God-fearing youth.</p> 
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
+<div class="section-box">
+  <h2>Mission</h2>
+  <p>To empower individuals and organizations through transformative training and strategic consultancy.</p>
+
+  <h2>Vision</h2>
+  <p>To be a global leader in corporate training and business development solutions.</p>
+
+  <h2>Core Values</h2>
+  <ul>
+    <li>Integrity</li>
+    <li>Growth</li>
+    <li>Innovation</li>
+    <li>Excellence</li>
+  </ul>
+
+  <h2>Why Choose Us</h2>
+  <p>
+    We deliver practical, results-driven solutions tailored to modern corporate challenges.
+  </p>
 </div>
-<div class="ministry"><h2>Women Ministry</h2><p>Empowering women in faith.</p>
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
- <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
+
+<div class="section-box subscribe">
+  <h2>Subscribe to Our Newsletter</h2>
+  <form action="mailto:samuelwafula010@gmail.com" method="post" enctype="text/plain">
+    <input type="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
 </div>
-<div class="ministry"><h2>Men Ministry</h2><p>Building strong spiritual leaders.</p></div>
-<div class="ministry"><h2>Praise & Worship Ministry</h2><p>Leading the church in worship.</p></div>
-<div class="ministry"><h2>Prison Ministry</h2><p>Bringing hope to inmates.</p></div>
-<div class="ministry"><h2>Hospital Ministry</h2><p>Prayer and encouragement.</p></div>
-<div class="ministry"><h2>Children’s Home Ministry</h2><p>Caring for the vulnerable.</p></div>
-</section>
 
-<!-- MAP -->
-<section class="section">
-<h2 style="text-align:center">Find Us</h2>
-<iframe src="https://www.google.com/maps?q=Kenya&output=embed"></iframe>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-<div class="box contact">
-<h2>Contact Us</h2>
-<p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
-<p>Phone: 0743268987</p>
-
-<input type="email" placeholder="Subscribe to our email"><br>
-<button>Subscribe</button>
+<div class="section-box contact-box">
+  <h2>Contact Us</h2>
+  <p><strong>Phone:</strong> 0743 268 987</p>
+  <p><strong>Email:</strong> samuelwafula010@gmail.com</p>
+  <p><strong>Location:</strong> Kenya</p>
 </div>
-</section>
 
-<!-- FOOTER -->
 <footer>
-<div>
-<h4>Get in Touch</h4>
-<a href="mailto:samuelwafula010@gmail.com">Email</a>
-</div>
-
-<div>
-<h4>Resources</h4>
-<a href="#">Ministers</a>
-<a href="#">Blog</a>
-<a href="#">Giving</a>
-</div>
-
-<div>
-<h4>Quick Links</h4>
-<a href="#">Livestream</a>
-<a href="#">Announcements</a>
-<a href="#">Services</a>
-<a href="#">Campuses</a>
-</div>
+  <div class="footer-grid">
+    <div>
+      <h3>Quick Links</h3>
+      <a href="#">About Us</a>
+      <a href="#">Our Team</a>
+    </div>
+    <div>
+      <h3>Services</h3>
+      <a href="#">Trainings</a>
+      <a href="#">Consultancy</a>
+    </div>
+    <div>
+      <h3>Resources</h3>
+      <a href="#">Blog</a>
+      <a href="#">Events</a>
+    </div>
+    <div>
+      <h3>Support</h3>
+      <a href="#">Contact</a>
+      <a href="#">Book Now</a>
+    </div>
+  </div>
 </footer>
 
-<!-- WHATSAPP CHAT -->
-<a class="whatsapp"
-href="https://wa.me/254743268987"
-target="_blank">
-WhatsApp Chat
-</a>
-
-<script>
-let i=0;
-function slides(){
- let s=document.getElementsByClassName("slide");
- for(let x=0;x<s.length;x++){s[x].style.display="none";}
- i++; if(i>s.length){i=1;}
- s[i-1].style.display="block";
- setTimeout(slides,1000);
-}
-slides();
-</script>
+<a class="chat-btn" href="https://wa.me/254743268987" target="_blank">Chat</a>
 
 </body>
 </html>
