@@ -1,320 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PEFA CHURCH BUKOKHOLO</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; scroll-behavior: smooth;}
-body { background: #fff; color: #333; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEFA CHURCH BUKOKHOLO</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
 
-/* Header */
-header {
-    background: royalblue;
-    color: white;
-    padding: 10px 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-header img.logo { height: 60px; width: auto; animation: fadeIn 2s ease-in-out infinite alternate; }
-@keyframes fadeIn {
-    0% { opacity: 0.5; transform: scale(0.9);}
-    100% { opacity: 1; transform: scale(1);}
-}
+        body {
+            background-color: #fff;
+            color: #333;
+        }
 
-/* Navigation */
-nav ul { list-style: none; display: flex; gap: 25px; flex-wrap: wrap; }
-nav ul li { position: relative; }
-nav ul li a { color: white; text-decoration: none; font-weight: 600; transition: 0.3s; }
-nav ul li a:hover { color: orange; }
-nav ul li ul {
-    position: absolute; top: 35px; left: 0;
-    background: royalblue; padding: 10px;
-    display: none; flex-direction: column; min-width: 180px; border-radius: 5px;
-}
-nav ul li:hover ul { display: flex; }
-nav ul li ul li { padding: 5px 0; }
-nav ul li ul li a:hover { color: orange; }
+        /* Header */
+        header {
+            background: royalblue;
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-/* Hero */
-.hero { position: relative; overflow: hidden; height: 400px; }
-.hero img {
-    width: 200%;
-    height: 100%;
-    object-fit: cover;
-    animation: slideLeft 30s linear infinite;
-}
-@keyframes slideLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
+        header img.logo {
+            height: 60px;
+            width: auto;
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
 
-/* Section Box */
-.section-box {
-    border: 3px solid orange;
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 1200px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-radius: 5px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1s ease-in-out;
-}
-.section-box.visible { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn {
+            from { opacity: 0.5; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
 
-.section-box h2 { color: royalblue; margin-bottom: 15px; }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
 
-/* Galleries */
-.gallery {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-}
-.gallery::-webkit-scrollbar { display: none; }
-.gallery img {
-    flex: 0 0 auto;
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-.gallery img:hover { transform: scale(1.05); opacity: 0.9; }
+        nav ul li {
+            position: relative;
+        }
 
-/* Contact & Subscribe */
-.contact-box {
-    border: 3px solid orange;
-    padding: 20px;
-    max-width: 600px;
-    margin: 40px auto;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-radius: 5px;
-}
-.contact-box input, .contact-box textarea {
-    width: 100%; padding: 10px; margin: 10px 0; border: 2px solid #ccc; border-radius: 5px;
-}
-.contact-box button {
-    background: orange; color: white; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; transition: 0.3s;
-}
-.contact-box button:hover { background: royalblue; }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-/* Floating Chat Button */
-.chat-btn {
-    position: fixed; bottom: 20px; right: 20px;
-    background: orange; color: white; border: none;
-    border-radius: 50%; width: 60px; height: 60px;
-    font-size: 24px; cursor: pointer; box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-    transition: 0.3s;
-}
-.chat-btn:hover { background: royalblue; }
+        nav ul li a:hover {
+            color: orange;
+        }
 
-/* Footer */
-footer { background: royalblue; color: white; padding: 40px 50px; }
-footer .footer-links { display: flex; justify-content: space-between; flex-wrap: wrap; }
-footer .footer-links div { flex: 1; min-width: 200px; margin: 10px; }
-footer .footer-links h4 { margin-bottom: 10px; cursor: pointer; }
-footer .footer-links ul { list-style: none; display: none; }
-footer .footer-links ul li a { color: white; text-decoration: none; transition: 0.3s; }
-footer .footer-links ul li a:hover { color: orange; }
+        nav ul li ul {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            background: royalblue;
+            padding: 10px;
+            display: none;
+            flex-direction: column;
+            min-width: 180px;
+        }
 
-/* Responsive */
-@media(max-width: 900px){
-    nav ul { flex-direction: column; background: royalblue; position: absolute; top: 80px; right: -100%; transition: 0.3s; padding: 20px; }
-    nav ul.show { right: 0; }
-    nav ul li { margin-bottom: 10px; }
-    .hero { height: 250px; }
-    .gallery img { width: 250px; height: 150px; }
-}
+        nav ul li:hover ul {
+            display: flex;
+        }
 
-/* Hamburger */
-.hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-.hamburger div { width: 30px; height: 4px; background: white; }
-@media(max-width:900px){ .hamburger { display: flex; } }
+        nav ul li ul li {
+            padding: 5px 0;
+        }
 
-</style>
+        nav ul li ul li a:hover {
+            color: orange;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            animation: slideLeft 20s linear infinite;
+        }
+
+        @keyframes slideLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Section Rectangle */
+        .section-box {
+            border: 3px solid orange;
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 1200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 5px;
+        }
+
+        .section-box h2 {
+            color: royalblue;
+            margin-bottom: 15px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .gallery img {
+            width: calc(25% - 10px);
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact & Subscribe */
+        .contact-box {
+            border: 3px solid orange;
+            padding: 20px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 5px;
+        }
+
+        .contact-box input, .contact-box textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-box button {
+            background: orange;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-box button:hover {
+            background: royalblue;
+        }
+
+        /* Floating Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: orange;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .chat-btn:hover {
+            background: royalblue;
+        }
+
+        /* Footer */
+        footer {
+            background: royalblue;
+            color: white;
+            padding: 40px 50px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links div {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        footer .footer-links h4 {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-links ul {
+            list-style: none;
+        }
+
+        footer .footer-links ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer .footer-links ul li a:hover {
+            color: orange;
+        }
+
+    </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Placeholder_logo.png" alt="PEFA CHURCH BUKOKHOLO Logo" class="logo">
-    <nav>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div><div></div><div></div>
-        </div>
-        <ul id="menu">
-            <li><a href="#live">Live</a></li>
-            <li><a href="#campuses">Service Campuses</a></li>
-            <li><a href="#ministers">PEFA Sirisha Ministers</a></li>
-            <li><a href="#who">Who We Are</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#giving">Giving</a></li>
-            <li><a href="#contacts">Contacts</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- Hero -->
-<div class="hero">
-    <img src="https://picsum.photos/1600/400?random=1" alt="Church Banner">
-</div>
-
-<!-- Sections -->
-<div class="section-box" id="about">
-    <h2>About Us</h2>
-    <p>PEFA CHURCH BUKOKHOLO is a vibrant community dedicated to serving God and the community through worship, ministry, and outreach. Our journey is guided by Bishop Godfrey Simiyu and PEFA Sirisha leadership.</p>
-</div>
-
-<div class="section-box" id="sunday-school">
-    <h2>Sunday School Ministry</h2>
-    <p>Nurturing young hearts in the word of God.</p>
-    <div class="gallery">
-        <img src="https://picsum.photos/300/200?random=2" alt="Sunday School 1">
-        <img src="https://picsum.photos/300/200?random=3" alt="Sunday School 2">
-        <img src="https://picsum.photos/300/200?random=4" alt="Sunday School 3">
-        <img src="https://picsum.photos/300/200?random=5" alt="Sunday School 4">
-    </div>
-</div>
-
-<div class="section-box" id="hospital">
-    <h2>Hospital Ministry</h2>
-    <p>Serving those in hospitals with care, prayer, and compassion.</p>
-    <div class="gallery">
-        <img src="https://picsum.photos/300/200?random=6" alt="Hospital 1">
-        <img src="https://picsum.photos/300/200?random=7" alt="Hospital 2">
-        <img src="https://picsum.photos/300/200?random=8" alt="Hospital 3">
-        <img src="https://picsum.photos/300/200?random=9" alt="Hospital 4">
-    </div>
-</div>
-
-<div class="section-box" id="prison">
-    <h2>Prison Ministry</h2>
-    <p>Reaching out to prisoners with hope, love, and the Gospel.</p>
-    <div class="gallery">
-        <img src="https://picsum.photos/300/200?random=10" alt="Prison 1">
-        <img src="https://picsum.photos/300/200?random=11" alt="Prison 2">
-        <img src="https://picsum.photos/300/200?random=12" alt="Prison 3">
-        <img src="https://picsum.photos/300/200?random=13" alt="Prison 4">
-    </div>
-</div>
-
-<div class="section-box" id="women">
-    <h2>Women Ministry</h2>
-    <p>Empowering women through fellowship, prayer, and activities.</p>
-    <div class="gallery">
-        <img src="https://picsum.photos/300/200?random=14" alt="Women 1">
-        <img src="https://picsum.photos/300/200?random=15" alt="Women 2">
-        <img src="https://picsum.photos/300/200?random=16" alt="Women 3">
-        <img src="https://picsum.photos/300/200?random=17" alt="Women 4">
-    </div>
-</div>
-
-<!-- Sunday Service -->
-<div class="section-box" id="service">
-    <h2>Sunday Service Welcome</h2>
-    <p>Join us for uplifting Sunday services. <a href="#">Learn More</a></p>
-</div>
-
-<!-- Contact Section -->
-<div class="contact-box" id="contacts">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
-    <p>Phone: <a href="tel:0743268987">0743268987</a></p>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-    <form>
-        <input type="email" placeholder="Subscribe to our newsletter" required>
-        <button type="submit">Subscribe</button>
-    </form>
-</div>
-
-<!-- Floating Chat Button -->
-<button class="chat-btn" onclick="window.location.href='tel:0743268987'">💬</button>
-
-<!-- Footer -->
-<footer>
-    <div class="footer-links">
-        <div>
-            <h4 onclick="toggleFooter(this)">Get in Touch</h4>
+    <!-- Header -->
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Placeholder_logo.png" alt="PEFA CHURCH BUKOKHOLO Logo" class="logo">
+        <nav>
             <ul>
-                <li><a href="mailto:samuelwafula010@gmail.com">Email Us</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4 onclick="toggleFooter(this)">Resources</h4>
-            <ul>
-                <li><a href="#">Ministers</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="#">Live</a>
+                    <ul>
+                        <li><a href="#">Live Sermon</a></li>
+                        <li><a href="#">What Live</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Service Campuses</a></li>
+                <li><a href="#">PEFA Sirisha Ministers</a></li>
+                <li><a href="#">Who We Are</a>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">The Journey</a></li>
+                        <li><a href="#">Bishop Godfrey Simiyu</a></li>
+                        <li><a href="#">PEFA Sirisha Leadership</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Resources</a>
+                    <ul>
+                        <li><a href="#">Pastors Care</a></li>
+                        <li><a href="#">Crisis Counselling</a></li>
+                        <li><a href="#">Family</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Giving</a></li>
+                <li><a href="#">Contacts</a></li>
             </ul>
-        </div>
-        <div>
-            <h4 onclick="toggleFooter(this)">About Us ▼</h4>
-            <ul>
-                <li><a href="#">Bishop Godfrey Simiyu</a></li>
-                <li><a href="#">Leadership</a></li>
-                <li><a href="#">Who We Are</a></li>
-                <li><a href="#">The Journey</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4 onclick="toggleFooter(this)">Quick Links ▼</h4>
-            <ul>
-                <li><a href="#">Livestream</a></li>
-                <li><a href="#">Announcements</a></li>
-                <li><a href="#">Service</a></li>
-                <li><a href="#">Campuses</a></li>
-            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Image Section -->
+    <div class="hero">
+        <img src="https://picsum.photos/1600/400?random=1" alt="Church Banner">
+    </div>
+
+    <!-- About Us Section -->
+    <div class="section-box">
+        <h2>About Us</h2>
+        <p>PEFA CHURCH BUKOKHOLO is a vibrant community dedicated to serving God and the community through worship, ministry, and outreach. Our journey is guided by the vision of Bishop Godfrey Simiyu and the leadership of PEFA Sirisha.</p>
+    </div>
+
+    <!-- Ministry Sections -->
+    <div class="section-box">
+        <h2>Sunday School Ministry</h2>
+        <p>Our Sunday School ministry nurtures young hearts in the word of God.</p>
+        <div class="gallery">
+            <img src="https://picsum.photos/300/200?random=2" alt="Sunday School 1">
+            <img src="https://picsum.photos/300/200?random=3" alt="Sunday School 2">
+            <img src="https://picsum.photos/300/200?random=4" alt="Sunday School 3">
+            <img src="https://picsum.photos/300/200?random=5" alt="Sunday School 4">
         </div>
     </div>
-</footer>
 
-<script>
-// Hamburger toggle
-function toggleMenu() {
-    document.getElementById('menu').classList.toggle('show');
-}
+    <div class="section-box">
+        <h2>Hospital Ministry</h2>
+        <p>Serving those in hospitals with care, prayer, and compassion.</p>
+        <div class="gallery">
+            <img src="https://picsum.photos/300/200?random=6" alt="Hospital 1">
+            <img src="https://picsum.photos/300/200?random=7" alt="Hospital 2">
+            <img src="https://picsum.photos/300/200?random=8" alt="Hospital 3">
+            <img src="https://picsum.photos/300/200?random=9" alt="Hospital 4">
+        </div>
+    </div>
 
-// Footer dropdown toggle
-function toggleFooter(el){
-    const ul = el.nextElementSibling;
-    if(ul.style.display === 'block'){ ul.style.display = 'none'; } 
-    else { ul.style.display = 'block'; }
-}
+    <div class="section-box">
+        <h2>Prison Ministry</h2>
+        <p>Reaching out to prisoners with hope, love, and the Gospel.</p>
+        <div class="gallery">
+            <img src="https://picsum.photos/300/200?random=10" alt="Prison 1">
+            <img src="https://picsum.photos/300/200?random=11" alt="Prison 2">
+            <img src="https://picsum.photos/300/200?random=12" alt="Prison 3">
+            <img src="https://picsum.photos/300/200?random=13" alt="Prison 4">
+        </div>
+    </div>
 
-// Animate sections on scroll
-const sections = document.querySelectorAll('.section-box');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-    });
-}, { threshold: 0.2 });
-sections.forEach(section => observer.observe(section));
+    <div class="section-box">
+        <h2>Women Ministry</h2>
+        <p>Empowering women through fellowship, prayer, and activities.</p>
+        <div class="gallery">
+            <img src="https://picsum.photos/300/200?random=14" alt="Women 1">
+            <img src="https://picsum.photos/300/200?random=15" alt="Women 2">
+            <img src="https://picsum.photos/300/200?random=16" alt="Women 3">
+            <img src="https://picsum.photos/300/200?random=17" alt="Women 4">
+        </div>
+    </div>
 
-// Gallery auto-slide animation
-const galleries = document.querySelectorAll('.gallery');
-galleries.forEach((gallery, i) => {
-    let scrollAmount = 0;
-    setInterval(()=>{
-        scrollAmount += 1;
-        if(scrollAmount >= gallery.scrollWidth - gallery.clientWidth) scrollAmount = 0;
-        gallery.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    }, 50 + i*10);
-});
-</script>
+    <!-- Sunday Service Welcome -->
+    <div class="section-box">
+        <h2>Sunday Service Welcome</h2>
+        <p>Join us for uplifting Sunday services. <a href="#">Learn More</a></p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-box">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
+        <p>Phone: <a href="tel:0743268987">0743268987</a></p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <form>
+            <input type="email" placeholder="Subscribe to our newsletter" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button class="chat-btn" onclick="window.location.href='tel:0743268987'">💬</button>
+
+    <!-- Church Gallery -->
+    <div class="section-box">
+        <h2>Church Gallery</h2>
+        <div class="gallery">
+            <img src="https://picsum.photos/300/200?random=18" alt="Church 1">
+            <img src="https://picsum.photos/300/200?random=19" alt="Church 2">
+            <img src="https://picsum.photos/300/200?random=20" alt="Church 3">
+            <img src="https://picsum.photos/300/200?random=21" alt="Church 4">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <div>
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="mailto:samuelwafula010@gmail.com">Email Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Ministers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Giving</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About Us ▼</h4>
+                <ul>
+                    <li><a href="#">Bishop Godfrey Simiyu</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Who We Are</a></li>
+                    <li><a href="#">The Journey</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Quick Links ▼</h4>
+                <ul>
+                    <li><a href="#">Livestream</a></li>
+                    <li><a href="#">Announcements</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Campuses</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add simple fade-in animation to gallery images
+        const galleries = document.querySelectorAll('.gallery img');
+        galleries.forEach((img, i) => {
+            img.style.opacity = 0;
+            setTimeout(() => {
+                img.style.transition = 'opacity 1s ease-in-out';
+                img.style.opacity = 1;
+            }, i * 300);
+        });
+    </script>
 
 </body>
 </html>
