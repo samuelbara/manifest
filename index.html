@@ -2,284 +2,306 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PEFA Church Sirisha District</title>
+<title>PEFA Church Bukokholo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-html { scroll-behavior: smooth; }
-body { margin:0; font-family: Arial, sans-serif; }
+:root{
+    --orange:#f57c00;
+    --blue:#0a2a66;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#333;
+}
 
 /* HEADER */
-header {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  box-shadow: 0 2px 10px #00000030;
-  z-index: 1000;
+header{
+    background:var(--blue);
+    color:#fff;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
+
+header img{
+    width:70px;
+    animation:logoMove 3s infinite alternate;
 }
-.logo-area {
-  display: flex;
-  align-items: center;
+
+@keyframes logoMove{
+    from{transform:translateX(0);}
+    to{transform:translateX(15px);}
 }
-.logo-area img {
-  width: 55px;
-  margin-right: 10px;
-  transition: transform 1.2s;
+
+nav a{
+    color:#fff;
+    margin:0 10px;
+    text-decoration:none;
+    font-weight:500;
 }
-.logo-area img:hover { transform: rotate(360deg); }
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
+
+nav a:hover{
+    color:var(--orange);
 }
 
 /* HERO */
-.hero {
-  height: 70vh;
-  background: url("https://images.unsplash.com/photo-1504052434569-70ad5836ab65") center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.hero{
+    background:url("https://images.unsplash.com/photo-1529070538774-1843cb3265df") center/cover;
+    height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
-.hero-box {
-  border: 4px solid orange;
-  padding: 30px;
-  background: rgba(255,255,255,0.9);
-  animation: zoom 2s;
+
+.hero-box{
+    border:4px solid var(--orange);
+    background:rgba(0,0,0,0.6);
+    padding:40px;
+    color:#fff;
+    animation:slideLeft 2s;
+}
+
+@keyframes slideLeft{
+    from{transform:translateX(-100px);opacity:0;}
+    to{transform:translateX(0);opacity:1;}
 }
 
 /* SECTIONS */
-section { padding: 60px 20px; }
-.center { text-align: center; }
+section{
+    padding:50px 20px;
+}
 
-/* CONTENT BOX */
-.box {
-  max-width: 900px;
-  margin: 30px auto;
-  border: 3px solid orange;
-  padding: 25px;
-  box-shadow: 5px 5px 15px black;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
+.box{
+    border:3px solid var(--orange);
+    padding:25px;
+    background:#fff;
+    box-shadow:0 8px 15px rgba(0,0,0,0.3);
+    margin-bottom:30px;
 }
 
 /* GALLERY */
-.gallery {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.gallery img {
-  width: 260px;
-  border-radius: 10px;
-  transition: transform 1s;
-}
-.gallery img:hover { transform: scale(1.08); }
-
-/* LIVESTREAM */
-.livestream iframe {
-  width: 100%;
-  height: 400px;
-  border: none;
-  margin-bottom: 30px;
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
 }
 
-/* BUTTONS */
-.btn {
-  background: orange;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
+.gallery img{
+    width:100%;
+    border-radius:5px;
+    transition:0.6s;
 }
 
-/* WHATSAPP */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 20px;
-  box-shadow: 0 4px 10px #00000060;
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* MINISTRY ANIMATIONS */
+.fade{animation:fade 2s;}
+@keyframes fade{from{opacity:0;}to{opacity:1;}}
+
+.fly{animation:fly 2s;}
+@keyframes fly{from{transform:translateY(50px);opacity:0;}to{opacity:1;}}
+
+/* CONTACT */
+.contact-box{
+    border:3px solid var(--orange);
+    padding:20px;
+}
+
+/* CHAT BUTTON */
+.chat-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:var(--orange);
+    color:#fff;
+    padding:15px 20px;
+    border-radius:50px;
+    text-decoration:none;
 }
 
 /* FOOTER */
-footer {
-  background: #222;
-  color: white;
-  padding: 40px 20px;
+footer{
+    background:var(--blue);
+    color:#fff;
+    padding:30px;
 }
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 20px;
-}
-footer h4 { color: orange; }
 
-@keyframes zoom {
-  from { transform: scale(0.6); }
-  to { transform: scale(1); }
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+footer a{
+    color:#fff;
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:var(--orange);
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="header-inner">
-    <div class="logo-area">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Church_logo.svg/512px-Church_logo.svg.png">
-      <strong>PEFA CHURCH SIRISHA DISTRICT</strong>
+    <div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png">
+        <strong>PEFA CHURCH BUKOKHOLO</strong>
     </div>
+
     <nav>
-      <a href="#live">Live</a>
-      <a href="#about">About</a>
-      <a href="#ministries">Ministries</a>
-      <a href="#contact">Contact</a>
+        <a href="#">Live</a>
+        <a href="#">Find a Place</a>
+        <a href="#">Who We Are</a>
+        <a href="#">Resources</a>
+        <a href="#">Giving</a>
+        <a href="#contact">Contact</a>
     </nav>
-  </div>
 </header>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-box">
-    <h1>Welcome to PEFA Church Sirisha District</h1>
-    <p>Faith • Hope • Transformation</p>
-  </div>
+    <div class="hero-box">
+        <h1>Welcome to PEFA Church Bukokholo</h1>
+        <p>Transforming lives through Christ</p>
+    </div>
 </div>
 
-<!-- LIVESTREAM -->
-<section id="live">
-  <div class="box livestream">
-    <h2 class="center">Live Worship Service</h2>
-
-    <!-- YOUTUBE LIVESTREAM -->
-    <iframe 
-      src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
-      allowfullscreen>
-    </iframe>
-
-    <!-- FACEBOOK LIVESTREAM -->
-    <iframe 
-      src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/FACEBOOK_PAGE_NAME&tabs=timeline">
-    </iframe>
-  </div>
-</section>
-
 <!-- ABOUT -->
-<section id="about">
-  <div class="box">
-    <h2>About Us</h2>
-    <p>
-      PEFA Church Sirisha District exists to proclaim the Gospel of Jesus Christ,
-      disciple believers, and serve our communities with love and compassion.
-    </p>
-  </div>
+<section>
+<div class="box">
+<h2>About Us</h2>
+<p>PEFA Church Bukokholo is part of PEFA Sirisha Ministry led by Bishop Godfrey Simiyu Simiyuthen. Our journey is centered on faith, love, and service.</p>
+</div>
 </section>
 
-<!-- MINISTRIES -->
-<section id="ministries">
-  <div class="box">
-    <h3>Sunday School Ministry</h3>
-    <p>Nurturing children spiritually through biblical teaching.</p>
-  </div>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df">
-    <img src="https://images.unsplash.com/photo-1604882353936-5b8c70c84c38">
-  </div>
+<!-- SUNDAY SCHOOL -->
+<section>
+<div class="box">
+<h2>Sunday School Ministry</h2>
+<p>We nurture children in the Word of God through teaching, worship, and fun activities.</p>
+</div>
 
-  <div class="box">
-    <h3>Hospital Ministry</h3>
-    <p>Praying for and comforting the sick.</p>
-  </div>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309">
-    <img src="https://images.unsplash.com/photo-1576765607924-3f7b8410a787">
-  </div>
+<div class="gallery fade">
+<img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c">
+<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+<img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d">
+</div>
+</section>
 
-  <div class="box">
-    <h3>Prison Ministry</h3>
-    <p>Restoring hope and dignity through the Word of God.</p>
-  </div>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1589578527966-fdac0f44566c">
-    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea">
-  </div>
+<!-- HOSPITAL MINISTRY -->
+<section>
+<div class="box">
+<h2>Hospital Ministry</h2>
+<p>We bring hope, prayer, and comfort to the sick and their families.</p>
+</div>
 
-  <div class="box">
-    <h3>Women Ministry</h3>
-    <p>Empowering women through fellowship and prayer.</p>
-  </div>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
-  </div>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1580281657521-7b3efcfa96c1">
+<img src="https://images.unsplash.com/photo-1584515933487-779824d29309">
+</div>
+</section>
+
+<!-- PRISON MINISTRY -->
+<section>
+<div class="box">
+<h2>Prison Ministry</h2>
+<p>Restoring hope and dignity to inmates through the Gospel.</p>
+</div>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1581091870627-3b6b8dbbf08b">
+</div>
+</section>
+
+<!-- WOMEN MINISTRY -->
+<section>
+<div class="box fly">
+<h2>Women Ministry</h2>
+<p>Empowering women spiritually, socially, and economically.</p>
+</div>
+
+<div class="gallery fade">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
+</div>
+</section>
+
+<!-- SUNDAY SERVICE NOTE -->
+<section>
+<div class="box">
+<h2>Sunday Service Welcome Note</h2>
+<p>You are warmly welcome to worship with us every Sunday.</p>
+</div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="box">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
-    <p>Phone: 0743268987</p>
+<div class="contact-box">
+<h2>Contact Us</h2>
+<p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
+<p>Phone: 0743268987</p>
 
-    <form>
-      <input type="email" placeholder="Subscribe to our email">
-      <button class="btn">Subscribe</button>
-    </form>
-  </div>
+<h3>Subscribe to our Email</h3>
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+</div>
 </section>
 
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp" 
-   href="https://wa.me/254743268987" 
-   target="_blank">💬</a>
+<!-- CHAT BUTTON -->
+<a class="chat-btn" href="tel:0743268987">Chat</a>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div>
-      <h4>Quick Links</h4>
-      Livestream<br>Announcements<br>Service Campuses
-    </div>
-    <div>
-      <h4>Resources</h4>
-      Ministers<br>Giving
-    </div>
-    <div>
-      <h4>Get In Touch</h4>
-      Email<br>Contact<br>Location
-    </div>
-    <div>
-      <h4>About Us</h4>
-      Bishop Godfrey Simiyu<br>Leadership<br>The Journey
-    </div>
-  </div>
-</footer>
+<div class="footer-grid">
 
-<script>
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".box").forEach(box => {
-    if (box.getBoundingClientRect().top < window.innerHeight - 100) {
-      box.style.opacity = 1;
-      box.style.transform = "translateY(0)";
-    }
-  });
-});
-</script>
+<div>
+<h4>Get in Touch</h4>
+<a href="mailto:samuelwafula010@gmail.com">Email Us</a>
+</div>
+
+<div>
+<h4>Resources</h4>
+<a href="#">Ministers</a><br>
+<a href="#">Blog</a><br>
+<a href="#">Giving</a>
+</div>
+
+<div>
+<h4>About Us</h4>
+<a href="#">Bishop Godfrey Simiyu</a><br>
+<a href="#">Leadership</a><br>
+<a href="#">Who We Are</a><br>
+<a href="#">The Journey</a>
+</div>
+
+<div>
+<h4>Quick Links</h4>
+<a href="#">Livestream</a><br>
+<a href="#">Announcements</a><br>
+<a href="#">Services & Campuses</a>
+</div>
+
+</div>
+</footer>
 
 </body>
 </html>
