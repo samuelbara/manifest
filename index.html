@@ -1,108 +1,520 @@
-<!-- Ministries -->
-<section>
-    <!-- Sunday School Ministry -->
-    <div class="section-box">
-        <h2>Sunday School Ministry</h2>
-        <p>Our Sunday School nurtures children with biblical teachings in a fun and engaging way.</p>
-        <div class="gallery sunday-school">
-            <img src="sundayschool1.jpg" alt="Sunday School 1">
-            <img src="sundayschool2.jpg" alt="Sunday School 2">
-            <img src="sundayschool3.jpg" alt="Sunday School 3">
-        </div>
-    </div>
-
-    <!-- Hospital Ministry -->
-    <div class="section-box">
-        <h2>Hospital Ministry</h2>
-        <p>We bring hope and care to patients and staff in hospitals.</p>
-        <div class="gallery hospital">
-            <img src="hospital1.jpg" alt="Hospital Ministry 1">
-            <img src="hospital2.jpg" alt="Hospital Ministry 2">
-        </div>
-    </div>
-
-    <!-- Prison Ministry -->
-    <div class="section-box">
-        <h2>Prison Ministry</h2>
-        <p>Serving and ministering to inmates with love and hope.</p>
-        <div class="gallery prison">
-            <img src="prison1.jpg" alt="Prison Ministry 1">
-            <img src="prison2.jpg" alt="Prison Ministry 2">
-        </div>
-    </div>
-
-    <!-- Women Ministry -->
-    <div class="section-box">
-        <h2>Women Ministry</h2>
-        <p>Empowering women spiritually and socially.</p>
-        <div class="gallery women">
-            <img src="women1.jpg" alt="Women Ministry 1">
-            <img src="women2.jpg" alt="Women Ministry 2">
-        </div>
-    </div>
-</section>
-
-<style>
-/* Slide-in animations for ministries */
-@keyframes slideInLeft {
-    0% { opacity: 0; transform: translateX(-100px);}
-    100% { opacity: 1; transform: translateX(0);}
-}
-
-@keyframes slideInRight {
-    0% { opacity: 0; transform: translateX(100px);}
-    100% { opacity: 1; transform: translateX(0);}
-}
-
-@keyframes fadeOut {
-    0% { opacity: 1;}
-    100% { opacity: 0;}
-}
-
-.gallery img {
-    opacity: 0;
-    transform: translateX(0);
-    transition: transform 0.7s, opacity 0.7s;
-}
-
-/* Specific gallery animations */
-.sunday-school img.in-view {
-    animation: slideInLeft 1s forwards;
-}
-
-.hospital img.in-view {
-    animation: slideInRight 1s forwards;
-}
-
-.prison img.in-view {
-    animation: slideInLeft 1s forwards, fadeOut 1s 2s forwards; /* fade out after 2s delay */
-}
-
-.women img.in-view {
-    animation: slideInLeft 1s forwards;
-}
-</style>
-
-<script>
-// Scroll-triggered gallery animations
-const allGalleries = document.querySelectorAll('.gallery');
-
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top < window.innerHeight - 100
-    );
-}
-
-function animateGalleries() {
-    allGalleries.forEach(gallery => {
-        const images = gallery.querySelectorAll('img');
-        if (isInViewport(gallery)) {
-            images.forEach(img => img.classList.add('in-view'));
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukokholo PEFA Church</title>
+    <style>
+        /* GENERAL STYLES */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
-    });
-}
 
-window.addEventListener('scroll', animateGalleries);
-window.addEventListener('load', animateGalleries);
-</script>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #4169E1;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            position: relative;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        nav li:hover > ul {
+            display: block;
+        }
+
+        nav li a {
+            color: white;
+            font-weight: bold;
+        }
+
+        nav li ul {
+            display: none;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            background-color: #4169E1;
+            padding: 10px 0;
+            border-radius: 5px;
+            min-width: 150px;
+        }
+
+        nav li ul li {
+            padding: 5px 20px;
+        }
+
+        nav li ul li:hover {
+            background-color: #FFA500;
+        }
+
+        nav li::after {
+            content: " ▼";
+            font-size: 12px;
+        }
+
+        nav li ul li::after {
+            content: "";
+        }
+
+        /* IMAGE SLIDER */
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .welcome-note {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            border: 3px solid #FFA500;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            margin: 50px auto;
+            width: 90%;
+            padding: 20px;
+            border: 3px solid #FFA500;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            background: white;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* MINISTRIES */
+        .ministry-section {
+            margin: 50px auto;
+            width: 90%;
+            text-align: center;
+        }
+
+        .ministry-section h2 {
+            color: #4169E1;
+            margin-bottom: 20px;
+        }
+
+        .ministry {
+            border: 3px solid #FFA500;
+            padding: 20px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background: white;
+        }
+
+        .ministry img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            transition: 1s;
+        }
+
+        /* CONTACT & SUBSCRIBE */
+        .contact-section, .subscribe-section {
+            margin: 50px auto;
+            width: 90%;
+            text-align: center;
+        }
+
+        .contact-box, .subscribe-box {
+            border: 3px solid #FFA500;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background: white;
+        }
+
+        .contact-box a, .subscribe-box input[type="submit"] {
+            background-color: #FFA500;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .subscribe-box input[type="email"] {
+            padding: 10px;
+            width: 300px;
+            margin-right: 10px;
+            border: 1px solid #4169E1;
+            border-radius: 5px;
+        }
+
+        /* CHAT BUTTON */
+        .chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FFA500;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* GALLERY */
+        .gallery {
+            margin: 50px auto;
+            width: 90%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: 1s;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #4169E1;
+            color: white;
+            padding: 40px 50px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-links div {
+            margin: 10px;
+        }
+
+        .footer-links h3 {
+            border-bottom: 2px solid #FFA500;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            header {
+                flex-direction: column;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Bukokholo PEFA Church Logo">
+            <h1>Bukokholo PEFA Church</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>Home
+                    <ul>
+                        <li><a href="#">Welcome</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Announcements</a></li>
+                        <li><a href="#">Campuses</a></li>
+                    </ul>
+                </li>
+                <li>About Us
+                    <ul>
+                        <li><a href="#">Bishop Godfrey Simiyu</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Who We Are</a></li>
+                        <li><a href="#">The Journey</a></li>
+                    </ul>
+                </li>
+                <li>Live
+                    <ul>
+                        <li><a href="#">Stream 1</a></li>
+                        <li><a href="#">Stream 2</a></li>
+                        <li><a href="#">Stream 3</a></li>
+                        <li><a href="#">Archive</a></li>
+                    </ul>
+                </li>
+                <li>Find a Place
+                    <ul>
+                        <li><a href="#">Location 1</a></li>
+                        <li><a href="#">Location 2</a></li>
+                        <li><a href="#">Location 3</a></li>
+                        <li><a href="#">Contact Info</a></li>
+                    </ul>
+                </li>
+                <li>Who We Are
+                    <ul>
+                        <li><a href="#">Mission</a></li>
+                        <li><a href="#">Vision</a></li>
+                        <li><a href="#">Values</a></li>
+                        <li><a href="#">History</a></li>
+                    </ul>
+                </li>
+                <li>Resources
+                    <ul>
+                        <li><a href="#">Ministers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Giving</a></li>
+                        <li><a href="#">Media</a></li>
+                    </ul>
+                </li>
+                <li>Giving
+                    <ul>
+                        <li><a href="#">Tithes</a></li>
+                        <li><a href="#">Offerings</a></li>
+                        <li><a href="#">Online Giving</a></li>
+                        <li><a href="#">Sponsorship</a></li>
+                    </ul>
+                </li>
+                <li>Contact
+                    <ul>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Phone</a></li>
+                        <li><a href="#">Location</a></li>
+                        <li><a href="#">Social Media</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- IMAGE SLIDER -->
+    <div class="slider">
+        <div class="slides" id="slides">
+            <img src="img1.jpg" alt="Church Image 1">
+            <img src="img2.jpg" alt="Church Image 2">
+            <img src="img3.jpg" alt="Church Image 3">
+            <img src="img4.jpg" alt="Church Image 4">
+            <img src="img5.jpg" alt="Church Image 5">
+            <img src="img6.jpg" alt="Church Image 6">
+            <img src="img7.jpg" alt="Church Image 7">
+            <img src="img8.jpg" alt="Church Image 8">
+            <img src="img9.jpg" alt="Church Image 9">
+            <img src="img10.jpg" alt="Church Image 10">
+        </div>
+        <div class="welcome-note">Welcome to Bukokholo PEFA Church!</div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="about">
+        Bukokholo PEFA Church is committed to spreading the gospel of Jesus Christ with love, unity, and devotion.
+    </div>
+
+    <!-- MINISTRIES -->
+    <div class="ministry-section">
+        <div class="ministry">
+            <h2>Sunday School Ministry</h2>
+            <p>Our Sunday School ministry nurtures children in faith and biblical knowledge.</p>
+            <img src="sundayschool1.jpg" alt="Sunday School">
+            <img src="sundayschool2.jpg" alt="Sunday School Teaching">
+        </div>
+
+        <div class="ministry">
+            <h2>Men Ministry</h2>
+            <p>Empowering men to grow spiritually and lead in their homes and communities.</p>
+            <img src="men1.jpg" alt="Men Ministry">
+            <img src="men2.jpg" alt="Men Gathering">
+        </div>
+
+        <div class="ministry">
+            <h2>Women Ministry</h2>
+            <p>Supporting women to grow spiritually, emotionally, and socially.</p>
+            <img src="women1.jpg" alt="Women Ministry">
+            <img src="women2.jpg" alt="Women Gathering">
+        </div>
+
+        <div class="ministry">
+            <h2>Praise & Worship Ministry</h2>
+            <p>Leading the congregation in worship through music and praise.</p>
+            <img src="praise1.jpg" alt="Praise Ministry">
+            <img src="praise2.jpg" alt="Worship Gathering">
+        </div>
+
+        <div class="ministry">
+            <h2>Prison Ministry</h2>
+            <p>Bringing hope and spiritual guidance to inmates.</p>
+            <img src="prison1.jpg" alt="Prison Ministry">
+            <img src="prison2.jpg" alt="Prison Outreach">
+        </div>
+
+        <div class="ministry">
+            <h2>Hospital Ministry</h2>
+            <p>Visiting the sick and providing comfort through prayers and support.</p>
+            <img src="hospital1.jpg" alt="Hospital Ministry">
+            <img src="hospital2.jpg" alt="Hospital Visit">
+        </div>
+
+        <div class="ministry">
+            <h2>Children's Home Ministry</h2>
+            <p>Caring for orphans and vulnerable children with love and compassion.</p>
+            <img src="children1.jpg" alt="Children's Home">
+            <img src="children2.jpg" alt="Children's Activities">
+        </div>
+    </div>
+
+    <!-- SUNDAY SERVICE WELCOME NOTE -->
+    <div class="contact-section">
+        <div class="contact-box">
+            <h2>Sunday Service Welcome Note</h2>
+            <p><a href="sundayservice.html">Read More</a></p>
+        </div>
+    </div>
+
+    <!-- CONTACT & SUBSCRIBE -->
+    <div class="contact-section">
+        <div class="contact-box">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
+            <p>Phone: <a href="tel:0743268987">0743268987</a></p>
+        </div>
+        <div class="subscribe-box">
+            <h2>Subscribe to our Newsletter</h2>
+            <form action="mailto:samuelwafula010@gmail.com" method="post" enctype="text/plain">
+                <input type="email" name="email" placeholder="Your email" required>
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+
+    <!-- CHAT BUTTON -->
+    <div class="chat-btn" onclick="window.location.href='tel:0743268987'">Chat with Us</div>
+
+    <!-- GALLERY -->
+    <div class="gallery">
+        <img src="gallery1.jpg" alt="Gallery 1">
+        <img src="gallery2.jpg" alt="Gallery 2">
+        <img src="gallery3.jpg" alt="Gallery 3">
+        <img src="gallery4.jpg" alt="Gallery 4">
+        <img src="gallery5.jpg" alt="Gallery 5">
+        <img src="gallery6.jpg" alt="Gallery 6">
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <div>
+                <h3>Get in Touch</h3>
+                <a href="mailto:samuelwafula010@gmail.com">Email Us</a>
+                <a href="tel:0743268987">Call Us</a>
+            </div>
+            <div>
+                <h3>Resources</h3>
+                <a href="#">Ministers</a>
+                <a href="#">Blog</a>
+                <a href="#">Giving</a>
+            </div>
+            <div>
+                <h3>About Us</h3>
+                <a href="#">Bishop Godfrey Simiyu</a>
+                <a href="#">Leadership</a>
+                <a href="#">Who We Are</a>
+                <a href="#">The Journey</a>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#">Livestream</a>
+                <a href="#">Announcements</a>
+                <a href="#">Service</a>
+                <a href="#">Campuses</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // IMAGE SLIDER
+        const slides = document.getElementById('slides');
+        let index = 0;
+        const total = slides.children.length;
+
+        setInterval(() => {
+            index++;
+            if(index >= total) index = 0;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }, 1000); // change every 1 second
+
+        // Simple hover image transition
+        const galleryImages = document.querySelectorAll('.gallery img');
+        galleryImages.forEach(img => {
+            img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.05)');
+            img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
+        });
+
+        // Ministry image transition
+        const ministryImages = document.querySelectorAll('.ministry img');
+        ministryImages.forEach(img => {
+            img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.05)');
+            img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
+        });
+    </script>
+</body>
+</html>
