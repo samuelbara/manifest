@@ -4,273 +4,270 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PEFA SIRISHA DISTRICT</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif;}
-    body {background:#f8f8f8; color:#333; scroll-behavior: smooth;}
-    a {text-decoration:none; color:inherit;}
-    img {max-width:100%;}
+:root{
+  --orange:#ff7f00;
+  --blue:#0b2c5f;
+}
 
-    /* HEADER */
-    header {background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.2); position:sticky; top:0; z-index:1000; padding:10px 20px; display:flex; align-items:center; justify-content:space-between;}
-    .logo img {width:120px; height:auto; transition:transform 0.5s ease;}
-    .logo img:hover {transform:rotate(15deg) scale(1.1);}
-    nav ul {list-style:none; display:flex; gap:20px;}
-    nav li {padding:10px 15px; transition:background 0.3s ease; border-radius:5px;}
-    nav li:hover {background:orange; color:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#f5f5f5;color:#333;}
 
-    /* HERO */
-    .hero {position:relative; background:url('https://source.unsplash.com/1600x600/?church') center/cover no-repeat; height:400px; display:flex; align-items:center; justify-content:center; overflow:hidden;}
-    .hero .hero-box {border:3px solid orange; padding:20px; background:rgba(255,255,255,0.8); box-shadow:0 5px 15px rgba(0,0,0,0.5); animation:slideIn 1s ease forwards;}
-    @keyframes slideIn {0%{transform:translateY(-50px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
+a{text-decoration:none;color:white;}
 
-    /* SECTIONS */
-    .section {padding:60px 20px; display:flex; flex-direction:column; align-items:center;}
-    .content-box {border:3px solid orange; padding:30px; box-shadow:0 5px 15px rgba(0,0,0,0.5); max-width:1000px; margin-bottom:40px; opacity:0; transform:translateY(30px); transition:all 1s ease;}
-    .section h2 {text-align:center; margin-bottom:20px; color:orange;}
-    .section p {font-size:1.1em; line-height:1.6;}
+header{
+  background:var(--blue);
+  padding:10px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 
-    /* MINISTRIES */
-    .ministries {display:flex; flex-wrap:wrap; justify-content:center; gap:40px;}
-    .ministry-box {border:3px solid orange; box-shadow:0 5px 15px rgba(0,0,0,0.3); padding:20px; width:300px; background:#fff; position:relative; overflow:hidden; transition:transform 0.5s ease; opacity:0; transform:translateY(30px);}
-    .ministry-box h3 {margin-bottom:15px; color:orange;}
-    .ministry-box:hover {transform:scale(1.05);}
-    .gallery {display:flex; gap:10px; overflow-x:auto; margin-top:10px;}
+.logo img{
+  width:140px;
+  transition:transform 1s;
+}
+.logo img:hover{transform:rotate(360deg);}
 
-    /* GALLERY ANIMATIONS */
-    .slide-left img {opacity:0; transform:translateX(-200px); transition:all 1s ease;}
-    .slide-right img {opacity:0; transform:translateX(200px); transition:all 1s ease;}
-    .wipe img {opacity:0; clip-path: inset(0 100% 0 0); transition:all 1s ease;}
-    .flyfade img {opacity:0; transform:translateY(-50px); transition:all 1s ease;}
+nav ul{list-style:none;display:flex;gap:20px;}
+nav li{position:relative;}
+nav li a{padding:10px;font-weight:bold;}
+nav li:hover > ul{display:block;}
 
-    .visible {opacity:1; transform:translateX(0) translateY(0); clip-path: inset(0 0 0 0);}
+nav ul ul{
+  display:none;
+  position:absolute;
+  background:var(--blue);
+  top:35px;
+  min-width:220px;
+}
+nav ul ul li{border-bottom:1px solid #fff;}
+nav ul ul li a{display:block;padding:10px;}
 
-    /* CONTACT */
-    .contact-box {border:3px solid orange; padding:30px; max-width:600px; margin:40px auto; box-shadow:0 5px 15px rgba(0,0,0,0.3); text-align:center;}
-    .contact-box input, .contact-box textarea {width:100%; padding:10px; margin:10px 0;}
-    .contact-box button {background:orange; color:#fff; padding:10px 20px; border:none; cursor:pointer; transition:background 0.3s ease;}
-    .contact-box button:hover {background:darkorange;}
+.hero{
+  height:400px;
+  background:url("https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b") center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.hero-box{
+  width:80%;
+  height:200px;
+  border:5px solid var(--orange);
+  animation:zoom 2s infinite alternate;
+}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.05)}}
 
-    /* CHAT BUTTON */
-    .chat-btn {position:fixed; bottom:30px; right:30px; background:orange; color:#fff; padding:15px; border-radius:50%; font-size:18px; cursor:pointer; box-shadow:0 5px 15px rgba(0,0,0,0.3); transition:transform 0.3s ease;}
-    .chat-btn:hover {transform:scale(1.1);}
+.section{
+  max-width:1200px;
+  margin:50px auto;
+  padding:20px;
+  background:white;
+  border:3px solid var(--orange);
+  box-shadow:0 0 12px black;
+}
 
-    footer {background:#333; color:#fff; text-align:center; padding:20px;}
+.section h2{color:var(--blue);margin-bottom:15px;}
 
-    @media(max-width:768px){nav ul{flex-direction:column; background:#fff; position:absolute; top:60px; right:20px; padding:10px; display:none; border:1px solid #ccc;} nav ul.show{display:flex;}}
+.gallery{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+.gallery img{
+  width:30%;
+  border:3px solid var(--orange);
+  box-shadow:0 0 10px black;
+  opacity:0;
+  transform:translateX(-50px);
+  transition:1s;
+}
+.gallery img.show{opacity:1;transform:translateX(0);}
+
+.fade img{transform:scale(0.8);}
+.fly img{transform:translateY(50px);}
+
+.contact-box{
+  border:3px solid var(--orange);
+  padding:20px;
+}
+
+input,textarea,button{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:2px solid var(--orange);
+}
+
+button{
+  background:var(--orange);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+footer{
+  background:var(--blue);
+  color:white;
+  padding:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+}
+
+footer h4{color:var(--orange);margin-bottom:10px;}
+
+.chat{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:var(--orange);
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  font-weight:bold;
+  box-shadow:0 0 10px black;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-    <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Placeholder_logo.png/600px-Placeholder_logo.png" alt="PEFA SIRISHA Logo">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#live">Live</a></li>
-            <li><a href="#find">Find a Place</a></li>
-            <li><a href="#about">Who We Are</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#giving">Giving</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<div class="logo">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/PEFA_logo.svg">
+</div>
+
+<nav>
+<ul>
+<li><a href="#">Live</a>
+  <ul>
+    <li><a href="#sermon">Sermon</a></li>
+    <li><a href="#live">Live</a></li>
+  </ul>
+</li>
+
+<li><a href="#">Find a Place</a>
+  <ul>
+    <li><a href="#campuses">Service Campuses</a></li>
+    <li><a href="#ministers">PEFA Sirisha Ministers</a></li>
+  </ul>
+</li>
+
+<li><a href="#">Who We Are</a>
+  <ul>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#journey">The Journey</a></li>
+    <li><a href="#bishop">Bishop Godfrey Simiyuthen</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+  </ul>
+</li>
+
+<li><a href="#">Resources</a>
+  <ul>
+    <li><a href="#pastors">Pastors Care</a></li>
+    <li><a href="#crisis">Crisis Counselling</a></li>
+    <li><a href="#family">Family</a></li>
+  </ul>
+</li>
+
+<li><a href="#giving">Giving</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
 </header>
 
-<section class="hero" id="live">
-    <div class="hero-box">
-        <h1>Welcome to PEFA SIRISHA DISTRICT</h1>
-        <p><a href="#">Live Sermon</a></p>
-    </div>
+<section class="hero">
+<div class="hero-box"></div>
 </section>
 
-<section class="section" id="about">
-    <div class="content-box">
-        <h2>About Us</h2>
-        <p>PEFA Sirisha District is a vibrant faith community dedicated to spiritual growth, community service, and ministry outreach. Led by Bishop Godfrey Simiyuthen, we strive to impact lives through love, compassion, and empowerment.</p>
-    </div>
+<section id="about" class="section">
+<h2>About Us</h2>
+<p>PEFA Sirisha District is a Christ-centered ministry committed to spiritual growth, discipleship, and community transformation.</p>
 </section>
 
-<section class="section" id="ministries">
-    <h2>Our Ministries</h2>
-    <div class="ministries">
-
-        <!-- Sunday School Ministry -->
-        <div class="ministry-box">
-            <h3>Sunday School Ministry</h3>
-            <p>We nurture the faith of children through engaging Sunday school activities.</p>
-            <div class="gallery slide-left">
-                <img src="https://source.unsplash.com/100x100/?children" alt="Sunday School 1">
-                <img src="https://source.unsplash.com/101x100/?children" alt="Sunday School 2">
-                <img src="https://source.unsplash.com/102x100/?children" alt="Sunday School 3">
-            </div>
-        </div>
-
-        <!-- Hospital Ministry -->
-        <div class="ministry-box">
-            <h3>Hospital Ministry</h3>
-            <p>We serve the sick and the needy, bringing hope and care to hospitals.</p>
-            <div class="gallery slide-right">
-                <img src="https://source.unsplash.com/100x100/?hospital" alt="Hospital 1">
-                <img src="https://source.unsplash.com/101x100/?hospital" alt="Hospital 2">
-                <img src="https://source.unsplash.com/102x100/?hospital" alt="Hospital 3">
-            </div>
-        </div>
-
-        <!-- Prison Ministry -->
-        <div class="ministry-box">
-            <h3>Prison Ministry</h3>
-            <p>We reach out to prisoners offering spiritual guidance and rehabilitation support.</p>
-            <div class="gallery wipe">
-                <img src="https://source.unsplash.com/100x100/?prison" alt="Prison 1">
-                <img src="https://source.unsplash.com/101x100/?prison" alt="Prison 2">
-                <img src="https://source.unsplash.com/102x100/?prison" alt="Prison 3">
-            </div>
-        </div>
-
-        <!-- Women Ministry -->
-        <div class="ministry-box">
-            <h3>Women Ministry</h3>
-            <p>Empowering women through faith-based activities, support groups, and community service.</p>
-            <div class="gallery flyfade">
-                <img src="https://source.unsplash.com/100x100/?women" alt="Women 1">
-                <img src="https://source.unsplash.com/101x100/?women" alt="Women 2">
-                <img src="https://source.unsplash.com/102x100/?women" alt="Women 3">
-            </div>
-        </div>
-
-    </div>
+<section id="sundayschool" class="section">
+<h2>Sunday School Ministry</h2>
+<p>Nurturing children in faith and biblical truth.</p>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1601758123927-6b2fbb276d04">
+<img src="https://images.unsplash.com/photo-1596496055161-1a98f7758a4b">
+<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+</div>
 </section>
 
-<section class="section" id="welcome">
-    <div class="content-box">
-        <h2>Sunday Service Welcome Note</h2>
-        <p>We warmly welcome all visitors and members to our Sunday services. Join us as we worship, pray, and grow together in faith.</p>
-    </div>
+<section id="hospital" class="section">
+<h2>Hospital Ministry</h2>
+<p>Praying and caring for the sick.</p>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1588776814546-9dc2172bc38d">
+<img src="https://images.unsplash.com/photo-1588776814546-9dc2172bc38d">
+</div>
 </section>
 
-<section class="section" id="contact">
-    <div class="contact-box">
-        <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:samuelwafula010@gmail.com">samuelwafula010@gmail.com</a></p>
-        <p>Phone: 0743268987</p>
-        <form action="mailto:samuelwafula010@gmail.com" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div style="margin-top:20px;">
-            <input type="email" placeholder="Subscribe to our email" id="subscribeEmail">
-            <button onclick="subscribeEmail()">Subscribe</button>
-        </div>
-    </div>
+<section id="prison" class="section">
+<h2>Prison Ministry</h2>
+<p>Restoring hope behind bars.</p>
+<div class="gallery fade">
+<img src="https://images.unsplash.com/photo-1600053194220-52b3074d1da1">
+</div>
 </section>
 
-<div class="chat-btn" onclick="window.location.href='tel:0743268987'">💬</div>
+<section id="women" class="section">
+<h2>Women Ministry</h2>
+<p>Empowering women spiritually and socially.</p>
+<div class="gallery fly">
+<img src="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62">
+<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
+</div>
+</section>
 
-<footer style="background:#333; color:#fff; padding:40px 20px;">
-    <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
+<section id="contact" class="section">
+<h2>Contact Us</h2>
+<div class="contact-box">
+<form action="mailto:samuelwafula010@gmail.com" method="post">
+<input placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send</button>
+</form>
+</div>
+</section>
 
-        <!-- About Section -->
-        <div style="flex:1; min-width:250px;">
-            <h3 style="color:orange; margin-bottom:15px;">PEFA SIRISHA</h3>
-            <p>We are a vibrant faith community dedicated to spiritual growth, community service, and ministry outreach. Join us in worship and fellowship.</p>
-        </div>
-
-        <!-- Quick Links -->
-        <div style="flex:1; min-width:200px;">
-            <h3 style="color:orange; margin-bottom:15px;">Quick Links</h3>
-            <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
-                <li><a href="#live" style="color:#fff;">Live</a></li>
-                <li><a href="#find" style="color:#fff;">Find a Place</a></li>
-                <li><a href="#about" style="color:#fff;">Who We Are</a></li>
-                <li><a href="#ministries" style="color:#fff;">Ministries</a></li>
-                <li><a href="#resources" style="color:#fff;">Resources</a></li>
-                <li><a href="#giving" style="color:#fff;">Giving</a></li>
-                <li><a href="#contact" style="color:#fff;">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Connect Section -->
-        <div style="flex:1; min-width:250px;">
-            <h3 style="color:orange; margin-bottom:15px;">Connect with Us</h3>
-            <p>
-                <span style="margin-right:8px;">📧</span>
-                <a href="mailto:samuelwafula010@gmail.com" style="color:#fff;">samuelwafula010@gmail.com</a>
-            </p>
-            <p>
-                <span style="margin-right:8px;">📞</span>
-                <a href="tel:0743268987" style="color:#fff;">0743268987</a>
-            </p>
-            <div style="margin-top:10px; display:flex; gap:15px;">
-                <!-- Website -->
-                <a href="#" style="color:#fff;" target="_blank" aria-label="Website">
-                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-                        <path d="M12 4a8 8 0 100 16 8 8 0 000-16z"/>
-                    </svg>
-                </a>
-                <!-- Facebook -->
-                <a href="#" style="color:#fff;" target="_blank" aria-label="Facebook">
-                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-2.9h2V9.5c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2v1.5h2.2l-.3 2.9h-1.9v7A10 10 0 0022 12z"/>
-                    </svg>
-                </a>
-                <!-- Instagram -->
-                <a href="#" style="color:#fff;" target="_blank" aria-label="Instagram">
-                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.3.5.5.2.8.5 1 .9.2.4.4 1 .5 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.3-.2.5-.5.8-.9 1-.4.2-1 .4-2.3.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.3-.5-.5-.2-.8-.5-1-.9-.2-.4-.4-1-.5-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.3.2-.5.5-.8.9-1 .4-.2 1-.4 2.3-.5C8.4 2.2 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 5.6.2 4.7.4 4 .7 3.2 1 2.6 1.5 2 2c-.6.6-1 1.2-1.3 2-.3.7-.5 1.6-.6 3C0 8.3 0 8.7 0 12s0 3.7.1 5c.1 1.3.3 2.2.6 3 .3.8.7 1.4 1.3 2 .6.6 1.2 1 2 1.3.7.3 1.6.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.4-.7 2-1.3.6-.6 1-1.2 1.3-2 .3-.7.5-1.6.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.4-1.3-2-.6-.6-1.2-1-2-1.3-.7-.3-1.6-.5-3-.6C15.7 0 15.3 0 12 0z"/>
-                        <path d="M12 5.8a6.2 6.2 0 106.2 6.2A6.2 6.2 0 0012 5.8zm0 10.2a4 4 0 114-4 4 4 0 01-4 4zm6.4-11.5a1.45 1.45 0 11-1.45-1.45A1.45 1.45 0 0118.4 4.5z"/>
-                    </svg>
-                </a>
-                <!-- Twitter -->
-                <a href="#" style="color:#fff;" target="_blank" aria-label="Twitter">
-                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 4.6c-.9.4-1.8.7-2.8.8a4.9 4.9 0 002.1-2.7 9.7 9.7 0 01-3.1 1.2 4.9 4.9 0 00-8.4 4.5 13.9 13.9 0 01-10.1-5.1 4.9 4.9 0 001.5 6.5 4.8 4.8 0 01-2.2-.6v.1a4.9 4.9 0 003.9 4.8 4.9 4.9 0 01-2.2.1 4.9 4.9 0 004.6 3.4 9.8 9.8 0 01-6.1 2.1c-.4 0-.8 0-1.2-.1a13.9 13.9 0 007.5 2.2c9 0 13.9-7.5 13.9-13.9 0-.2 0-.4 0-.6a9.9 9.9 0 002.5-2.5z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Footer Bottom -->
-    <div style="text-align:center; margin-top:30px; font-size:0.9em; color:#ccc;">
-        &copy; 2026 PEFA SIRISHA DISTRICT. All Rights Reserved.
-    </div>
+<footer>
+<div>
+<h4>About Us</h4>
+<p>Who We Are<br>The Journey</p>
+</div>
+<div>
+<h4>Connect</h4>
+<p>Live<br>Find a Place</p>
+</div>
+<div>
+<h4>Quick Links</h4>
+<p>Resources<br>Giving</p>
+</div>
+<div>
+<h4>Contact</h4>
+<p>0743268987<br>samuelwafula010@gmail.com</p>
+</div>
 </footer>
 
+<a class="chat" href="tel:0743268987">Chat</a>
 
 <script>
-    // EMAIL SUBSCRIBE
-    function subscribeEmail() {
-        const email = document.getElementById('subscribeEmail').value;
-        if(email){
-            window.location.href = `mailto:samuelwafula010@gmail.com?subject=Subscribe&body=Please subscribe ${email} to your mailing list.`;
-            alert("Thank you for subscribing!");
-        } else { alert("Please enter your email."); }
-    }
-
-    // SCROLL ANIMATIONS
-    const boxes = document.querySelectorAll('.ministry-box, .content-box');
-    const galleries = document.querySelectorAll('.gallery img');
-
-    function checkVisibility() {
-        const triggerBottom = window.innerHeight * 0.85;
-        boxes.forEach(box => {
-            const boxTop = box.getBoundingClientRect().top;
-            if(boxTop < triggerBottom){ box.classList.add('visible'); }
-        });
-        galleries.forEach(img => {
-            const imgTop = img.getBoundingClientRect().top;
-            if(imgTop < triggerBottom){ img.classList.add('visible'); }
-        });
-    }
-
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('load', checkVisibility);
+const imgs=document.querySelectorAll(".gallery img");
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add("show");
+ });
+},{threshold:.3});
+imgs.forEach(i=>observer.observe(i));
 </script>
 
 </body>
