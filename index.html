@@ -216,6 +216,84 @@ footer a:hover {
     width: 90%;
     padding: 20px;
   }
+
+  /* Ads Slider */
+.ads-section {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding: 20px 0;
+}
+
+.ads-track {
+  display: flex;
+  gap: 20px;
+  animation: slideLeft 30s linear infinite;
+}
+
+.ad-box {
+  min-width: 250px;
+  height: 150px;
+  border: 3px solid var(--orange);
+  flex-shrink: 0;
+}
+
+.ad-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sliding animation */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Testimonials */
+.testimonials {
+  width: 80%;
+  margin: 60px auto;
+  background: white;
+  border: 3px solid var(--orange);
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.testimonial {
+  padding: 20px;
+}
+
+.testimonial img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--orange);
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.testimonial p {
+  font-style: italic;
+}
+
+.testimonial h4 {
+  margin-top: 10px;
+  color: var(--blue);
+}
+
 }
 </style>
 </head>
@@ -243,6 +321,22 @@ footer a:hover {
     <a href="#">Book Now</a>
   </nav>
 </header>
+  
+<!-- Ads Section -->
+<section class="ads-section">
+  <div class="ads-track">
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+1"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+2"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+3"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+4"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+5"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+6"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+7"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+8"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+9"></div>
+    <div class="ad-box"><img src="https://via.placeholder.com/300x150?text=Ad+10"></div>
+  </div>
+</section>
 
 <section class="hero">
   <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Students and Trainers">
@@ -289,6 +383,37 @@ footer a:hover {
   <p><strong>Email:</strong> samuelwafula010@gmail.com</p>
   <p><strong>Location:</strong> Kenya</p>
 </div>
+
+  <!-- Client Testimonials -->
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/150" alt="Client 1">
+      <p>"Manifest Concepts transformed our leadership team."</p>
+      <h4>John Mwangi</h4>
+    </div>
+
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/150" alt="Client 2">
+      <p>"Highly professional and results-oriented training."</p>
+      <h4>Sarah Wanjiru</h4>
+    </div>
+
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/150" alt="Client 3">
+      <p>"Outstanding consultancy services with real impact."</p>
+      <h4>David Otieno</h4>
+    </div>
+
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/150" alt="Client 4">
+      <p>"A trusted partner for corporate growth."</p>
+      <h4>Grace Njeri</h4>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-grid">
