@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Manifest Concepts International</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6fa;
+    color:#333;
+    line-height:1.6;
+}
+
+/* HEADER */
+header{
+    background:#0b3c8a;
+    color:#fff;
+    text-align:center;
+    padding:50px 20px;
+}
+header h1{
+    margin:0;
+    font-size:40px;
+}
+header p{
+    margin-top:10px;
+    color:#f7931e;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* MAIN CONTENT BOX */
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:40px;
+    background:#fff;
+    border:4px solid #f7931e;
+    border-radius:8px;
+}
+
+h2{
+    color:#0b3c8a;
+    border-bottom:2px solid #f7931e;
+    display:inline-block;
+    padding-bottom:6px;
+    margin-top:30px;
+}
+
+ul{
+    padding-left:20px;
+}
+ul li{
+    margin-bottom:10px;
+}
+
+/* WHY US */
+.why-us p{
+    margin:10px 0;
+}
+
+/* IMAGE SLIDER */
+.slider{
+    max-width:1100px;
+    margin:60px auto;
+    overflow:hidden;
+    height:350px;
+    border-top:4px solid #f7931e;
+    border-bottom:4px solid #f7931e;
+}
+.slides{
+    display:flex;
+    width:1000%;
+    animation:slide 40s infinite;
+}
+.slides img{
+    width:100%;
+    object-fit:cover;
+}
+
+@keyframes slide{
+    0%{transform:translateX(0);}
+    10%{transform:translateX(0);}
+    20%{transform:translateX(-100%);}
+    30%{transform:translateX(-200%);}
+    40%{transform:translateX(-300%);}
+    50%{transform:translateX(-400%);}
+    60%{transform:translateX(-500%);}
+    70%{transform:translateX(-600%);}
+    80%{transform:translateX(-700%);}
+    90%{transform:translateX(-800%);}
+    100%{transform:translateX(-900%);}
+}
+
+/* FOOTER */
+footer{
+    background:#0b3c8a;
+    color:#eee;
+    padding:50px 20px;
+}
+.footer-container{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+footer h4{
+    color:#f7931e;
+}
+footer ul{
+    list-style:none;
+    padding:0;
+}
+footer ul li{
+    margin-bottom:8px;
+}
+.copyright{
+    text-align:center;
+    margin-top:40px;
+    font-size:13px;
+    border-top:1px solid rgba(255,255,255,0.2);
+    padding-top:15px;
+}
+
+@media(max-width:768px){
+    .footer-container{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+    .footer-container{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Manifest Concepts International</h1>
+    <p>Expert Training. Strategic Consultancy.</p>
+</header>
+
+<div class="container">
+
+<h2>Who We Are</h2>
+<p>
+We are a leading corporate training and business consultancy firm, dedicated to empowering professionals
+and organizations with expert-led training, strategic insights, and innovative solutions.
+</p>
+
+<h2>Our Mission</h2>
+<p>
+To empower professionals and businesses with world-class training and consultancy services,
+fostering growth, integrity, and resilience in an ever-evolving corporate environment.
+</p>
+
+<h2>Our Vision</h2>
+<p>
+To be a leading global authority in corporate training and consultancy, driving business excellence
+through knowledge, innovation, and ethical leadership.
+</p>
+
+<h2>Core Values</h2>
+<ul>
+<li><strong>Excellence</strong> – High-quality, impactful training and consultancy services</li>
+<li><strong>Integrity</strong> – Ethical business practices at the core</li>
+<li><strong>Innovation</strong> – Embracing emerging technologies and methodologies</li>
+<li><strong>Collaboration</strong> – Partnerships and shared success</li>
+<li><strong>Client-Centricity</strong> – Delivering real, measurable results</li>
+</ul>
+
+<h2>Why Choose Us?</h2>
+<div class="why-us">
+<p>🔹 <strong>Expert-Led Training</strong> – Delivered by seasoned industry professionals</p>
+<p>🔹 <strong>Tailored Solutions</strong> – Customized for specific organizational needs</p>
+<p>🔹 <strong>Proven Track Record</strong> – Trusted across multiple industries</p>
+<p>🔹 <strong>Innovative Approach</strong> – AI, blockchain, cybersecurity & digital forensics</p>
+</div>
+
+<h2>Meet Our Team</h2>
+<p>
+Our team comprises renowned trainers, consultants, and industry specialists with expertise in risk
+management, forensic auditing, leadership, AI-driven audit strategies, and cybersecurity.
+</p>
+
+<h2>Our Services</h2>
+<ul>
+<li>✅ <strong>Corporate Training</strong> – Fraud prevention, forensic auditing, AI in auditing,
+enterprise risk management, corporate governance</li>
+<li>✅ <strong>Business Consultancy</strong> – Risk, fraud, cybersecurity, digital transformation,
+leadership development</li>
+<li>✅ <strong>Strategic Advisory</strong> – AI integration, financial integrity, compliance,
+leadership excellence</li>
+</ul>
+
+</div>
+
+<!-- IMAGE SLIDER -->
+<div class="slider">
+<div class="slides">
+<img src="https://picsum.photos/1100/350?1">
+<img src="https://picsum.photos/1100/350?2">
+<img src="https://picsum.photos/1100/350?3">
+<img src="https://picsum.photos/1100/350?4">
+<img src="https://picsum.photos/1100/350?5">
+<img src="https://picsum.photos/1100/350?6">
+<img src="https://picsum.photos/1100/350?7">
+<img src="https://picsum.photos/1100/350?8">
+<img src="https://picsum.photos/1100/350?9">
+<img src="https://picsum.photos/1100/350?10">
+</div>
+</div>
+
+<footer>
+<div class="footer-container">
+
+<div>
+<h4>About Us</h4>
+<p>Expert corporate training and strategic consultancy driving sustainable business growth.</p>
+</div>
+
+<div>
+<h4>Services</h4>
+<ul>
+<li>Corporate Training</li>
+<li>Business Consultancy</li>
+<li>Strategic Advisory</li>
+<li>Risk & Compliance</li>
+</ul>
+</div>
+
+<div>
+<h4>Expertise</h4>
+<ul>
+<li>Forensic Auditing</li>
+<li>AI & Digital Transformation</li>
+<li>Cybersecurity</li>
+<li>Enterprise Risk Management</li>
+</ul>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>Email: info@manifestconcepts.com</p>
+<p>Phone: +000 000 0000</p>
+<p>Global Presence</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Manifest Concepts International. All Rights Reserved.
+</div>
+</footer>
+
+</body>
+</html>
