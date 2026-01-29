@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Page</title>
+<style>
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header and hamburger menu */
+header {
+  background-color: #4169E1; /* Royal Blue */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .logo-container img {
+  height: 50px;
+  width: auto;
+}
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Navigation */
+.menu {
+  display: none;
+  flex-direction: column;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0;
+  transition: all 0.3s;
+}
+.menu a:hover {
+  background-color: #FFA500;
+  color: white;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 25px;
+  height: 20px;
+  justify-content: space-between;
+}
+.hamburger div {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.4s;
+}
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+@media(min-width: 768px) {
+  .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .hamburger { display: none; }
+  .menu a:hover { background-color: transparent; color: #FFA500; padding-left: 0; }
+}
+
+/* Contact container */
+.contact-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 2px solid #FFA500;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4169E1;
+}
+.contact-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #4169E1;
+}
+.contact-container input,
+.contact-container textarea,
+.contact-container select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  font-size: 16px;
+}
+.contact-container button {
+  background-color: #FFA500;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+.contact-container button:hover {
+  background-color: darkorange;
+  transform: translateY(-2px);
+}
+
+/* Styled select to match inputs/cards */
+.contact-container select {
+  border: 2px solid #4169E1;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #4169E1;
+  font-weight: bold;
+  appearance: none;
+  padding-right: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.contact-container select:hover {
+  border-color: #FFA500;
+  color: #FFA500;
+}
+.select-wrapper {
+  position: relative;
+}
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4169E1;
+  pointer-events: none;
+  font-size: 14px;
+}
+.contact-container select:focus {
+  outline: none;
+  border-color: #FFA500;
+  color: #FFA500;
+}
+
+/* Mode of Participation cards */
+.mode-cards {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+.mode-card {
+  flex: 1;
+  min-width: 120px;
+  padding: 15px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #fff;
+  color: #4169E1;
+  font-weight: bold;
+  font-size: 16px;
+  overflow: hidden;
+}
+.mode-card img {
+  width: 100%;
+  max-width: 120px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.mode-card:hover img {
+  transform: scale(1.1); /* Hover zoom effect */
+}
+.mode-card.selected {
+  border-color: #FFA500;
+  background-color: #FFA500;
+  color: white;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #4169E1;
+  color: white;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+.footer-section {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+.footer-section h4 {
+  margin-bottom: 15px;
+  text-decoration: underline;
+  color: #FFA500;
+}
+.footer-section p, .footer-section a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+  transition: color 0.3s;
+}
+.footer-section a:hover, .footer-section p:hover {
+  color: #FFA500;
+}
+
+/* Sticky contact/chat button */
+.sticky-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #FFA500;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s, transform 0.3s;
+}
+.sticky-contact:hover {
+  background-color: darkorange;
+  transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media(max-width: 768px) {
+  header .logo-container img { height: 40px; }
+  .contact-container { padding: 15px; margin: 20px; max-width: 90%; }
+  .contact-container label, .contact-container input, .contact-container textarea, .contact-container button, .contact-container select { font-size: 18px; }
+  .contact-container button { padding: 14px 25px; }
+  .mode-cards { flex-direction: column; }
+  .mode-card { width: 100%; min-width: unset; font-size: 18px; padding: 20px; }
+  .mode-card img { max-width: 100%; margin-bottom: 15px; height: auto; }
+}
+@media(max-width: 480px) {
+  header h1 { font-size: 20px; }
+  .contact-container h2 { font-size: 22px; }
+  .contact-container label { font-size: 16px; }
+  .contact-container input, .contact-container textarea { font-size: 16px; padding: 14px; }
+  .contact-container button { padding: 16px 30px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/df-01.png" alt="Logo">
+    <h1>Manifest Concept International</h1>
+  </div>
+  <nav>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <div class="menu" id="menu">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Contact Form -->
+<div class="contact-container">
+  <h2>Contact Us</h2>
+  <form id="contactForm" action="mailto:samuelwafula010@gmail.com" method="post" enctype="text/plain">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="job">Job Title:</label>
+    <input type="text" id="job" name="job">
+
+    <label for="organisation">Organisation:</label>
+    <input type="text" id="organisation" name="organisation">
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address">
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone">
+
+    <label for="category">Category:</label>
+    <div class="select-wrapper">
+      <select id="category" name="category" required>
+        <option value="" disabled selected>Select a category</option>
+        <option value="Technology">Technology</option>
+        <option value="Business">Business</option>
+        <option value="Health">Health</option>
+        <option value="Education">Education</option>
+      </select>
+    </div>
+
+    <label for="course">Course:</label>
+    <div class="select-wrapper">
+      <select id="course" name="course" required>
+        <option value="" disabled selected>Select a course</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+        <option value="Data Science">Data Science</option>
+        <option value="Project Management">Project Management</option>
+      </select>
+    </div>
+
+    <label>Mode of Participation:</label>
+    <div class="mode-cards">
+      <div class="mode-card" data-value="In-person">
+        <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600" alt="In-person Meeting">
+        <p>In‑person</p>
+      </div>
+      <div class="mode-card" data-value="Online">
+        <img src="https://images.pexels.com/photos/4145186/pexels-photo-4145186.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Online Virtual Meeting">
+        <p>Online</p>
+      </div>
+      <div class="mode-card" data-value="In-house">
+        <img src="https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=600" alt="In-house Collaboration">
+        <p>In‑house</p>
+      </div>
+    </div>
+    <input type="hidden" name="mode" id="modeInput" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<!-- Sticky Chat Button -->
+<div class="sticky-contact" onclick="window.location.href='tel:+254743268987'">Chat with Us</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-section">
+    <h4>Company</h4>
+    <p>About Us</p>
+    <p>Careers</p>
+    <p>Blog</p>
+  </div>
+  <div class="footer-section">
+    <h4>Support</h4>
+    <p>Help Center</p>
+    <p>FAQs</p>
+    <p>Contact Support</p>
+  </div>
+  <div class="footer-section">
+    <h4>Legal</h4>
+    <p>Privacy Policy</p>
+    <p>Terms of Service</p>
+    <p>Cookies</p>
+  </div>
+  <div class="footer-section">
+    <h4>Follow Us</h4>
+    <p>Facebook</p>
+    <p>Twitter</p>
+    <p>Instagram</p>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+// Hamburger toggle
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  const hamburger = document.getElementById('hamburger');
+  menu.classList.toggle('show');
+  hamburger.classList.toggle('active');
+}
+
+// Mode of Participation selection
+const modeCards = document.querySelectorAll('.mode-card');
+const modeInput = document.getElementById('modeInput');
+modeCards.forEach(card => {
+  card.addEventListener('click', () => {
+    modeCards.forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    modeInput.value = card.getAttribute('data-value');
+  });
+});
+</script>
+
+</body>
+</html>
