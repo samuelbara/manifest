@@ -216,6 +216,62 @@ footer a:hover {
     width: 90%;
     padding: 20px;
   }
+
+  /* Testimonials */
+.testimonials {
+  text-align: center;
+}
+
+.testimonial-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.testimonial {
+  background: white;
+  border: 3px solid var(--orange);
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.testimonial p {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.testimonial h4 {
+  margin: 5px 0;
+  color: var(--blue);
+}
+
+.testimonial span {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Responsive Testimonials */
+@media (max-width: 768px) {
+  .testimonial-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 }
 </style>
 </head>
@@ -289,7 +345,35 @@ footer a:hover {
   <p><strong>Email:</strong> samuelwafula010@gmail.com</p>
   <p><strong>Location:</strong> Kenya</p>
 </div>
+<div class="section-box testimonials">
+  <h2>What Our Clients Say</h2>
 
+  <div class="testimonial-container">
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
+      <p>"Manifest Concepts International transformed our team with their incredible training programs. Truly results-driven!"</p>
+      <h4>John Mwangi</h4>
+      <span>CEO, Tech Solutions Ltd.</span>
+    </div>
+
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 2">
+      <p>"Professional, insightful, and practical consultancy services. Highly recommend!"</p>
+      <h4>Anne Wanjiru</h4>
+      <span>HR Manager, Global Enterprises</span>
+    </div>
+
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client 3">
+      <p>"Their corporate training programs empowered our staff to deliver more efficiently."</p>
+      <h4>David Otieno</h4>
+      <span>Operations Lead, FinCorp</span>
+    </div>
+  </div>
+</div>
+
+
+  
 <footer>
   <div class="footer-grid">
     <div>
