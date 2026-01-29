@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manifest Concepts International</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #0a1a3f, #102c6b);
+            color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #102c6b;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Logo */
+        .logo {
+            width: 120px;
+            height: auto;
+            animation: logoAnimation 2s ease-in-out infinite;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+        }
+
+        /* Logo animation: Spin and Bounce */
+        @keyframes logoAnimation {
+            0% {
+                transform: rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: rotate(360deg) scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+        }
+
+        .logo:hover {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+
+        header .company-name {
+            color: #ff9800;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #ff9800;
+        }
+
+        /* Hamburger menu for mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 4px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+        /* Mobile Menu */
+        .menu {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #102c6b;
+            position: absolute;
+            top: 20;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            padding: 50px 20px;
+            left:50px
+        }
+
+        .menu a {
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            color: #ff9800;
+        }
+
+        /* Show menu on hamburger click */
+        .menu.active {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff9800;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .submit-btn {
+            background: #ff9800;
+            color: #ffffff;
+            font-size: 18px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background: #e68900;
+        }
+
+        footer {
+            background: #081633;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-box h3 {
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .footer-box p,
+        .footer-box a {
+            font-size: 15px;
+            color: #ffffff;
+            opacity: 0.85;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-box a:hover {
+            color: #ff9800;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Logo with Animation -->
+    <img src="logo " alt="Company Logo" class="logo">
+    <div class="company-name">Manifest Concept International</div>
+
+    <!-- Navbar for desktop -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Book Now</a>
+        <a href="#">Consultancy</a>
+          <a href="#">Trainings</a>
+          <a href="#">About Us</a>
+        
+    </nav>
+
+    <!-- Hamburger icon for mobile -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="menu" id="menu">
+      <a href="#">Home</a>
+        <a href="#">Book Now</a>
+        <a href="#">Consultancy</a>
+          <a href="#">Trainings</a>
+          <a href="#">About Us</a>
+</div>
+
+<div class="container">
+    <h1>Book a Session</h1>
+    <p>Fill in the form and submit to book via WhatsApp</p>
+
+    <!-- Booking Form -->
+    <form id="bookingForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="tel" id="contact" placeholder="Your Contact Number" required>
+        <input type="number" id="numPeople" placeholder="Number of People" required>
+        <input type="number" id="numKids" placeholder="Number of Kids" required>
+
+        <!-- Nationality Dropdown -->
+        <select id="nationality" required>
+            <option value="">Select Nationality</option>
+            <option value="Kenyan">Kenyan</option>
+            <option value="Ugandan">Ugandan</option>
+            <option value="Tanzanian">Tanzanian</option>
+            <option value="Rwandan">Rwandan</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <!-- Package Dropdown -->
+        <select id="package" required>
+            <option value="">Select Package</option>
+            <option value="Standard">Standard</option>
+            <option value="Premium">Premium</option>
+            <option value="Family">Family</option>
+            <option value="VIP">VIP</option>
+        </select>
+
+        <input type="date" id="date" required>
+        <textarea id="message" placeholder="Your Message"></textarea>
+
+        <button class="submit-btn" type="submit">Submit Booking</button>
+    </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>About Us</h3>
+            <p>We provide professional and reliable booking services tailored to your needs.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Services</h3>
+            <a href="#">Human Resources</a>
+            <a href="#">Risk Management</a>
+            <a href="#">Leadership & Governance</a>
+             <a href="#">Marketing</a>
+              <a href="#">Cybersecurity & IT</a>
+            
+            
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: samuelwafula010@gmail.com</p>
+            <p>WhatsApp: +254 743268987</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Book Now</a>
+            <a href="#">About Us</a>
+            <a href="#">who we are</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 | All Rights Reserved
+    </div>
+</footer>
+
+<script>
+// Toggle mobile menu
+function toggleMenu() {
+    var menu = document.getElementById("menu");
+    menu.classList.toggle("active");
+}
+
+// Google Sheets & WhatsApp integration
+const scriptURL = "PASTE_YOUR_WEB_APP_URL_HERE";
+const whatsappNumber = "254700000000"; // CHANGE THIS
+
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const contact = document.getElementById("contact").value;
+    const numPeople = document.getElementById("numPeople").value;
+    const numKids = document.getElementById("numKids").value;
+    const nationality = document.getElementById("nationality").value;
+    const packageSelected = document.getElementById("package").value;
+    const date = document.getElementById("date").value;
+    const message = document.getElementById("message").value;
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            contact: contact,
+            numPeople: numPeople,
+            numKids: numKids,
+            nationality: nationality,
+            package: packageSelected,
+            date: date,
+            message: message
+        }),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(() => {
+        const text =
+            `Hello, I would like to make a booking.%0A%0A` +
+            `Name: ${name}%0A` +
+            `Email: ${email}%0A` +
+            `Contact: ${contact}%0A` +
+            `Number of People: ${numPeople}%0A` +
+            `Number of Kids: ${numKids}%0A` +
+            `Nationality: ${nationality}%0A` +
+            `Package: ${packageSelected}%0A` +
+            `Preferred Date: ${date}%0A` +
+            `Message: ${message}`;
+
+        window.open(`https://wa.me/${whatsappNumber}?text=${text}`, "_blank");
+    })
+    .catch(err => alert("Error saving booking. Please try again."));
+});
+</script>
+
+</body>
+</html>
