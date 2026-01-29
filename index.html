@@ -252,50 +252,57 @@ footer a:hover {
   100% {
     transform: translateX(-50%);
   }
-}
-
-/* Testimonials */
+  /* Testimonials */
 .testimonials {
-  width: 80%;
-  margin: 60px auto;
-  background: white;
-  border: 3px solid var(--orange);
-  padding: 40px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
   text-align: center;
 }
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-top: 30px;
 }
 
-.testimonial {
-  padding: 20px;
+.testimonial-card {
+  background: #f9f9f9;
+  padding: 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
-.testimonial img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 3px solid var(--orange);
+.testimonial-card img {
+  width: 120px;
+  height: 120px;
   object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--orange);
   margin-bottom: 15px;
 }
 
-.testimonial p {
+.testimonial-text {
   font-style: italic;
+  margin-bottom: 15px;
 }
 
-.testimonial h4 {
-  margin-top: 10px;
+.testimonial-card h4 {
+  margin: 5px 0;
   color: var(--blue);
 }
 
+.testimonial-card span {
+  font-size: 0.9rem;
+  color: #666;
 }
-</style>
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+}
 </head>
 
 <body>
@@ -383,36 +390,42 @@ footer a:hover {
   <p><strong>Email:</strong> samuelwafula010@gmail.com</p>
   <p><strong>Location:</strong> Kenya</p>
 </div>
-
-  <!-- Client Testimonials -->
-<section class="testimonials">
+    <div class="section-box testimonials">
   <h2>What Our Clients Say</h2>
 
   <div class="testimonial-grid">
-    <div class="testimonial">
-      <img src="https://via.placeholder.com/150" alt="Client 1">
-      <p>"Manifest Concepts transformed our leadership team."</p>
-      <h4>John Mwangi</h4>
+    <div class="testimonial-card">
+      <img src="https://via.placeholder.com/120" alt="Client 1">
+      <p class="testimonial-text">
+        “Manifest Concepts International transformed our team with practical,
+        engaging, and results-driven training.”
+      </p>
+      <h4>Jane Wanjiku</h4>
+      <span>HR Manager</span>
     </div>
 
-    <div class="testimonial">
-      <img src="https://via.placeholder.com/150" alt="Client 2">
-      <p>"Highly professional and results-oriented training."</p>
-      <h4>Sarah Wanjiru</h4>
+    <div class="testimonial-card">
+      <img src="https://via.placeholder.com/120" alt="Client 2">
+      <p class="testimonial-text">
+        “Their consultancy services helped us streamline operations and improve
+        overall performance.”
+      </p>
+      <h4>Peter Otieno</h4>
+      <span>Business Owner</span>
     </div>
 
-    <div class="testimonial">
-      <img src="https://via.placeholder.com/150" alt="Client 3">
-      <p>"Outstanding consultancy services with real impact."</p>
-      <h4>David Otieno</h4>
-    </div>
-
-    <div class="testimonial">
-      <img src="https://via.placeholder.com/150" alt="Client 4">
-      <p>"A trusted partner for corporate growth."</p>
-      <h4>Grace Njeri</h4>
+    <div class="testimonial-card">
+      <img src="https://via.placeholder.com/120" alt="Client 3">
+      <p class="testimonial-text">
+        “Professional, insightful, and impactful. Highly recommended for any
+        growing organization.”
+      </p>
+      <h4>Sarah Kimani</h4>
+      <span>Operations Director</span>
     </div>
   </div>
+</div>
+
 </section>
 
 <footer>
