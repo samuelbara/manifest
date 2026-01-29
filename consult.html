@@ -18,17 +18,14 @@
             color: #333;
         }
 
-        /* Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background-color: #fff;
+            background: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: sticky; top: 0; z-index: 1000;
         }
 
         .logo-img {
@@ -36,173 +33,38 @@
             width: 60px;
             object-fit: contain;
             border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .logo-img:hover {
             transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+        nav { display: none; flex-direction: column; background: #fff; position: absolute; top: 70px; right: 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 5px; }
+        nav a { padding: 10px 20px; text-decoration: none; color: #333; border-bottom: 1px solid #eee; }
+        nav a:last-child { border-bottom: none; }
 
-        .slogan {
-            font-size: 14px;
-            color: #666;
-        }
+        .hamburger { cursor: pointer; width: 40px; height: 30px; position: relative; background: orange; border-radius: 5px; }
+        .hamburger div { position: absolute; width: 70%; height: 4px; background: #fff; left: 50%; transform: translateX(-50%); border-radius: 2px; }
 
-        .hamburger {
-            display: inline-block;
-            cursor: pointer;
-            width: 40px;
-            height: 30px;
-            position: relative;
-            background-color: orange;
-            border-radius: 5px;
-        }
+        .carousel-container { position: relative; max-width: 1200px; margin: 40px auto; overflow: hidden; border-radius: 10px; }
+        .carousel-slide { display: flex; transition: transform 1s ease; }
+        .carousel-slide img { width: 100%; flex-shrink: 0; object-fit: cover; height: 300px; }
 
-        .hamburger div {
-            position: absolute;
-            width: 70%;
-            height: 4px;
-            background-color: #fff;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-            transition: 0.3s;
-        }
+        .content { max-width: 1000px; margin: 40px auto; padding: 30px; border: 2px solid orange; border-radius: 10px; background: #fff; }
+        .content h2 { color: orange; margin-bottom: 20px; }
+        .content h3 { margin-top: 20px; margin-bottom: 10px; }
+        .content ul { margin-left: 20px; margin-bottom: 20px; }
+        .content li { margin-bottom: 10px; }
 
-        .hamburger div:nth-child(1) {
-            top: 6px;
-        }
+        footer { background: #333; color: #fff; padding: 20px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; }
+        footer a { color: #fff; text-decoration: none; margin-right: 15px; }
 
-        .hamburger div:nth-child(2) {
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .hamburger div:nth-child(3) {
-            bottom: 6px;
-        }
-
-        nav {
-            display: none;
-            flex-direction: column;
-            background-color: #fff;
-            position: absolute;
-            top: 70px;
-            right: 40px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
-
-        nav a {
-            padding: 10px 20px;
-            text-decoration: none;
-            color: #333;
-            border-bottom: 1px solid #eee;
-        }
-
-        nav a:last-child {
-            border-bottom: none;
-        }
-
-        /* Carousel */
-        .carousel-container {
-            position: relative;
-            max-width: 1200px;
-            margin: 40px auto;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .carousel-slide {
-            display: flex;
-            transition: transform 1s ease;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            flex-shrink: 0;
-            object-fit: cover;
-            height: 300px;
-            transition: transform 0.3s;
-        }
-
-        .carousel-slide img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Body Content */
-        .content {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            border: 2px solid orange;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            background-color: #fff;
-        }
-
-        .content h2 {
-            margin-bottom: 20px;
-            color: orange;
-        }
-
-        .content h3 {
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .content ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        .content li {
-            margin-bottom: 10px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        footer a {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 15px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Hamburger */
         @media (min-width: 768px) {
-            nav {
-                display: flex !important;
-                flex-direction: row;
-                position: static;
-                box-shadow: none;
-                background: none;
-            }
-
-            nav a {
-                border: none;
-            }
-
-            .hamburger {
-                display: none;
-            }
+            nav { display: flex !important; position: static; box-shadow: none; background: none; flex-direction: row; }
+            nav a { border: none; }
+            .hamburger { display: none; }
         }
     </style>
 </head>
@@ -210,24 +72,17 @@
 
 <header>
     <div style="display: flex; align-items: center; gap: 15px;">
-        <!-- Clickable Logo -->
-        <a href="#home" style="display: inline-block;">
-            <img src="https://via.placeholder.com/60x60.png?text=Logo" alt="Company Logo" class="logo-img">
-        </a>
-
-        <!-- Title and Slogan -->
+        <a href="#home"><img src="https://via.placeholder.com/60x60.png?text=Logo" alt="Company Logo" class="logo-img"></a>
         <div>
             <div class="logo">Business Consultancy Services</div>
             <div class="slogan">Supporting Organizations Beyond Training</div>
         </div>
     </div>
 
-    <!-- Hamburger menu -->
     <div class="hamburger" onclick="toggleMenu(this)">
         <div></div><div></div><div></div>
     </div>
 
-    <!-- Navigation -->
     <nav id="menu">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
@@ -236,33 +91,17 @@
     </nav>
 </header>
 
-<!-- Carousel -->
 <section class="carousel-container">
     <div class="carousel-slide" id="carousel">
-        <img src="https://source.unsplash.com/random/800x300?business1" alt="Business 1">
-        <img src="https://source.unsplash.com/random/800x300?business2" alt="Business 2">
-        <img src="https://source.unsplash.com/random/800x300?business3" alt="Business 3">
-        <img src="https://source.unsplash.com/random/800x300?business4" alt="Business 4">
-        <img src="https://source.unsplash.com/random/800x300?business5" alt="Business 5">
-        <img src="https://source.unsplash.com/random/800x300?business6" alt="Business 6">
-        <img src="https://source.unsplash.com/random/800x300?business7" alt="Business 7">
-        <img src="https://source.unsplash.com/random/800x300?business8" alt="Business 8">
-        <img src="https://source.unsplash.com/random/800x300?business9" alt="Business 9">
-        <img src="https://source.unsplash.com/random/800x300?business10" alt="Business 10">
-        <img src="https://source.unsplash.com/random/800x300?business11" alt="Business 11">
-        <img src="https://source.unsplash.com/random/800x300?business12" alt="Business 12">
-        <img src="https://source.unsplash.com/random/800x300?business13" alt="Business 13">
-        <img src="https://source.unsplash.com/random/800x300?business14" alt="Business 14">
-        <img src="https://source.unsplash.com/random/800x300?business15" alt="Business 15">
-        <img src="https://source.unsplash.com/random/800x300?business16" alt="Business 16">
-        <img src="https://source.unsplash.com/random/800x300?business17" alt="Business 17">
-        <img src="https://source.unsplash.com/random/800x300?business18" alt="Business 18">
-        <img src="https://source.unsplash.com/random/800x300?business19" alt="Business 19">
-        <img src="https://source.unsplash.com/random/800x300?business20" alt="Business 20">
+        <!-- Real free business images from Pexels -->
+        <img src="https://images.pexels.com/photos/3183171/pexels-photo-3183171.jpeg" alt="Business Team Meeting">
+        <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg" alt="Office Collaboration">
+        <img src="https://images.pexels.com/photos/3861954/pexels-photo-3861954.jpeg" alt="Team Brainstorming">
+        <img src="https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg" alt="Business Strategy Discussion">
+        <img src="https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg" alt="Corporate Workspace">
     </div>
 </section>
 
-<!-- Body Content -->
 <section class="content">
     <p>Alongside corporate training, we provide business consultancy services to help organizations strengthen governance, risk management, compliance, and financial integrity.</p>
 
@@ -295,7 +134,6 @@
     </ul>
 </section>
 
-<!-- Footer -->
 <footer>
     <div>
         <a href="#home">Home</a>
@@ -307,14 +145,12 @@
 </footer>
 
 <script>
-    // Hamburger toggle function
     function toggleMenu(el) {
         el.classList.toggle("open");
         const menu = document.getElementById("menu");
-        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     }
 
-    // Carousel logic
     const carousel = document.getElementById('carousel');
     const slides = carousel.children;
     let index = 0;
@@ -326,14 +162,12 @@
         carousel.style.transform = `translateX(-${index * slideWidth}px)`;
     }
 
-    setInterval(nextSlide, 3000); // Change slide every 3 seconds
-
-    // Adjust slideWidth on resize
+    setInterval(nextSlide, 3000);
     window.addEventListener('resize', () => {
         const slideWidth = slides[0].clientWidth;
         carousel.style.transition = 'none';
         carousel.style.transform = `translateX(-${index * slideWidth}px)`;
-        setTimeout(() => carousel.style.transition = 'transform 1s ease', 50);
+        setTimeout(() => (carousel.style.transition = 'transform 1s ease'), 50);
     });
 </script>
 
