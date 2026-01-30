@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifest Concept International</title>
+<style>
+:root{--orange:#f57c00;--blue:#0a1e5c;--shadow:rgba(0,0,0,0.7);}
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;background:#f4f6fb;color:#222}
+
+/* ===== HEADER ===== */
+header{background:var(--blue);color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-box{width:40px;height:40px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;}
+.logo span{font-size:20px;font-weight:bold}
+.hamburger{font-size:26px;cursor:pointer}
+nav{display:none;position:absolute;top:65px;right:20px;background:var(--blue);padding:15px;border-radius:6px}
+nav a{color:#fff;text-decoration:none;display:block;margin:10px 0}
+
+/* ===== SECTIONS ===== */
+section{padding:50px 20px}
+h2{color:var(--blue);border-left:6px solid var(--orange);padding-left:10px;}
+
+/* ===== FILTERS ===== */
+.filters{margin:20px 0}
+.filters button{background:#fff;border:2px solid var(--orange);margin:5px;padding:8px 14px;cursor:pointer;font-weight:bold}
+.filters button.active,.filters button:hover{background:var(--orange);color:#fff}
+
+/* ===== COURSES ===== */
+.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.course-card{background:#fff;border:2px solid var(--orange);box-shadow:0 6px 15px var(--shadow);padding:20px;border-radius:8px;display:flex;flex-direction:column;justify-content:space-between;transition:0.3s}
+.course-card:hover{transform:translateY(-5px)}
+.course-card h3{font-size:16px;margin-bottom:10px;color:var(--blue)}
+.course-card p{flex-grow:1;margin-bottom:5px;color:#555;font-size:14px;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
+.read-more{color:var(--orange);cursor:pointer;font-weight:bold;font-size:13px;display:inline-block;margin-bottom:10px;}
+.subtopics{list-style-type:disc;margin-left:20px;color:#555;font-size:13px;}
+
+/* ===== POPUP ===== */
+.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);justify-content:center;align-items:center}
+.popup-content{background:#fff;padding:25px;width:320px;border-radius:8px;position:relative}
+.popup-content h3{color:var(--blue)}
+.popup-content input{width:100%;margin:8px 0;padding:8px}
+.popup-content button{width:100%;padding:10px;background:var(--orange);color:#fff;border:none;font-weight:bold;cursor:pointer}
+.close{cursor:pointer;color:red;text-align:right;position:absolute;top:10px;right:15px;font-size:18px}
+
+/* ===== FOOTER ===== */
+footer{background:var(--blue);color:#fff;padding:40px 20px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px}
+footer h4{color:var(--orange)}
+footer a{color:#ddd;text-decoration:none;display:block;margin:8px 0}
+
+/* ===== RESPONSIVE ===== */
+@media(min-width:768px){
+  nav{display:block!important;position:static;background:none}
+  nav a{display:inline-block;margin-left:20px}
+  .hamburger{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-box">MCI</div>
+    <span>Manifest Concept International</span>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <nav id="menu">
+   
+   <a href="#courses">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- COURSES -->
+<section id="courses">
+<h2>Our Courses</h2>
+<div class="filters">
+  <button class="active" onclick="filterCourses('All')">All</button>
+  <button onclick="filterCourses('Risk')">Risk</button>
+  <button onclick="filterCourses('Finance')">Finance</button>
+  <button onclick="filterCourses('HR')">HR</button>
+  <button onclick="filterCourses('Cyber')">Cyber & IT</button>
+  <button onclick="filterCourses('Marketing')">Marketing</button>
+</div>
+<div class="course-grid" id="courseGrid"></div>
+</section>
+
+<!-- BOOKING POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <div class="close" onclick="closePopup()">✖</div>
+    <h3 id="selectedCourse"></h3>
+    <input id="name" placeholder="Your Name">
+    <input id="phone" placeholder="Phone Number">
+    <button onclick="submitBooking()">Book Now</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+<div class="footer-grid">
+  <div><h4>Company</h4><a href="#">About</a><a href="#">Team</a></div>
+  <div><h4>Courses</h4><a href="#">Risk</a><a href="#">Finance</a></div>
+  <div><h4>Resources</h4><a href="#">Insights</a><a href="#">Events</a></div>
+  <div><h4>Contact</h4><a href="#">Email</a><a href="#">WhatsApp</a></div>
+</div>
+</footer>
+
+<script>
+// --- CONFIG ---
+const email="samuelwafula010@gmail.com";
+const whatsapp="254743268987";
+let currentCourse="";
+
+// --- COURSE DATA ---
+let courses=[
+  {title:"Risk Management",cat:"Risk",desc:"Master the fundamentals of identifying, assessing, and mitigating risks across any business. Learn practical frameworks and strategies to make confident, risk-aware decisions.",subtopics:["Identifying Risks","Assessing Risks","Mitigation Strategies"]},
+  {title:"Enterprise Risk Management: AI & Cybersecurity",cat:"Risk",desc:"Explore modern enterprise risk management with a focus on AI tools and cybersecurity threats. Equip yourself to protect organizations from digital and operational risks.",subtopics:["AI in Risk Management","Cybersecurity Threats","Operational Risk"]},
+  {title:"Strategic Financial Management for Executives",cat:"Finance",desc:"Gain executive-level skills in financial planning, investment analysis, and capital allocation to drive strategic business growth.",subtopics:["Financial Planning","Investment Analysis","Capital Allocation"]},
+  {title:"Finance Analysis for Non-Financial Managers",cat:"Finance",desc:"Learn to read and interpret financial statements, manage budgets, and make informed decisions without a finance background.",subtopics:["Financial Statements","Budget Management","Decision Making"]},
+  {title:"Employee Relations & HR Management",cat:"HR",desc:"Develop effective HR practices for recruitment, performance management, and employee engagement to build a productive workforce.",subtopics:["Recruitment","Performance Management","Employee Engagement"]},
+  {title:"Transformational Leadership for HR",cat:"HR",desc:"Learn leadership strategies to inspire teams, manage change, and drive organizational transformation through human capital.",subtopics:["Leadership Strategies","Change Management","Organizational Transformation"]},
+  {title:"Cybersecurity & Digital Forensics",cat:"Cyber",desc:"Protect digital assets and investigate cyber incidents with practical tools and techniques for cybersecurity defense and forensic analysis.",subtopics:["Digital Asset Protection","Incident Investigation","Forensic Techniques"]},
+  {title:"AI-Powered Compliance & Cybersecurity Oversight",cat:"Cyber",desc:"Leverage AI to monitor compliance, enhance cybersecurity governance, and streamline organizational risk oversight.",subtopics:["AI Monitoring","Cybersecurity Governance","Compliance Oversight"]},
+  {title:"Digital Marketing & Brand Positioning",cat:"Marketing",desc:"Master online marketing strategies, SEO, social media campaigns, and brand positioning to grow visibility and engagement.",subtopics:["SEO","Social Media Campaigns","Brand Positioning"]},
+  {title:"AI & Automation in Sales and Marketing",cat:"Marketing",desc:"Use AI and automation tools to optimize sales pipelines, enhance marketing campaigns, and drive data-driven growth.",subtopics:["AI Tools","Marketing Automation","Data-Driven Growth"]}
+];
+
+// --- RENDER COURSES ---
+const grid=document.getElementById("courseGrid");
+function renderCourses(filter="All"){
+  grid.innerHTML="";
+  courses.filter(c=>filter==="All"||c.cat===filter).forEach((c,i)=>{
+    const subtopicsHTML = c.subtopics ? `<ul class="subtopics">${c.subtopics.map(s=>`<li>${s}</li>`).join('')}</ul>` : '';
+    grid.innerHTML+=`
+      <div class="course-card">
+        <h3>${c.title}</h3>
+        <p id="desc-${i}">${c.desc}</p>
+        <span class="read-more" onclick="toggleReadMore(${i})">Read more</span>
+        ${subtopicsHTML}
+        <button onclick="openPopup('${c.title}')">Book</button>
+      </div>
+    `;
+  });
+}
+
+// --- READ MORE ---
+function toggleReadMore(i){
+  const p = document.getElementById(`desc-${i}`);
+  const span = p.nextElementSibling;
+  if(p.style.webkitLineClamp === "unset"){
+    p.style.webkitLineClamp = "3";
+    span.innerText = "Read more";
+  } else {
+    p.style.webkitLineClamp = "unset";
+    span.innerText = "Show less";
+  }
+}
+
+// --- POPUP ---
+function openPopup(course){
+  currentCourse = course;
+  document.getElementById("selectedCourse").innerText = course;
+  document.getElementById("name").value = "";
+  document.getElementById("phone").value = "";
+  document.getElementById("popup").style.display = "flex";
+}
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
+function submitBooking(){
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  if(!name || !phone){ alert("Please enter your name and phone number."); return; }
+  const msg = `Course: ${currentCourse}%0AName: ${name}%0APhone: ${phone}`;
+  window.open(`mailto:${email}?subject=Course Booking&body=${msg}`);
+  window.open(`https://wa.me/${whatsapp}?text=${msg}`);
+  closePopup();
+}
+
+// --- FILTER ---
+function filterCourses(cat){
+  document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+  event.target.classList.add("active");
+  renderCourses(cat);
+}
+
+// --- MENU ---
+function toggleMenu(){const m=document.getElementById("menu");m.style.display=m.style.display==="block"?"none":"block";}
+
+// INITIAL RENDER
+renderCourses();
+</script>
+</body>
+</html>
