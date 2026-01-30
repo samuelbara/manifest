@@ -103,10 +103,10 @@ footer a{color:#ddd;text-decoration:none;display:block;margin:8px 0}
 <!-- FOOTER -->
 <footer id="contact">
 <div class="footer-grid">
-  <div><h4>Company</h4><a href="#">About</a><a href="#">Team</a></div>
+  <div><h4>Company</h4><a href="about.html">About</a><a href="#">Team</a></div>
   <div><h4>Courses</h4><a href="#">Risk</a><a href="#">Finance</a></div>
   <div><h4>Resources</h4><a href="#">Insights</a><a href="#">Events</a></div>
-  <div><h4>Contact</h4><a href="#">Email</a><a href="#">WhatsApp</a></div>
+  <div><h4>Contact</h4><a href="#">Email</a><a href="book.html">WhatsApp</a></div>
 </div>
 </footer>
 
@@ -142,7 +142,7 @@ function renderCourses(filter="All"){
         <p id="desc-${i}">${c.desc}</p>
         <span class="read-more" onclick="toggleReadMore(${i})">Read more</span>
         ${subtopicsHTML}
-        <button onclick="openPopup('${c.title}')">Book</button>
+        <button onclick="openPopup('book.html')">Book</button>
       </div>
     `;
   });
